@@ -135,6 +135,13 @@ header{
             font-size: 2rem;
         }
     }
+
+    .aparecerSkill {
+        animation: aparecer 1s ease-in-out;
+        display: flex !important;
+            flex-direction: column;
+            align-items: center;
+    }
     
     
     .soft{

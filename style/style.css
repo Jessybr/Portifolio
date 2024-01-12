@@ -116,6 +116,12 @@ header {
   color: #FFC759;
   font-size: 2rem;
 }
+.cont_skills .aparecerSkill, .cont_about .aparecerSkill {
+  animation: aparecer 1s ease-in-out;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
 .cont_skills .soft, .cont_about .soft, .cont_skills .recen, .cont_about .recen, .cont_skills .hard, .cont_about .hard {
   display: none;
   width: 75%;
