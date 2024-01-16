@@ -98,7 +98,7 @@ header {
 }
 
 .cont_skills {
-  height: 850px;
+  height: 1035px;
   background-color: #04234E;
   display: flex;
   align-items: center;
@@ -522,7 +522,7 @@ header {
     margin: 30px;
   }
   .cont_about {
-    height: 185px;
+    height: 200px;
   }
   .cont_about p {
     width: 55%;
