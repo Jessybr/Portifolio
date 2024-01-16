@@ -1,19 +1,7 @@
-// const projeto1=document.getElementById('proj1');
-// const projeto2=document.getElementById('proj2');
-// const projeto3=document.getElementById('proj3');
-// const ver_mais1=document.querySelector('#ver_mais1');
-// const ver_mais2=document.querySelector('#ver_mais2');
-// const ver_mais3=document.querySelector('#ver_mais3');
 const soft=document.querySelector('.soft');
 const hard=document.querySelector('.hard');
 const recen=document.querySelector('.recen');
-// const proj_about1=document.getElementById('proj_about1');
-// const proj_img1=document.getElementById('proj_img1');
-// const proj_about2=document.getElementById('proj_about2');
-// const proj_img2=document.getElementById('proj_img2');
-// const proj_about3=document.getElementById('proj_about3');
-// const proj_img3=document.getElementById('proj_img3');
-// const close1=document.getElementById('close_about1');
+const contSkilss=document.getElementById('cont_skills');
 const projetos=[...document.querySelectorAll('.proj')];
 const ver_mais=[...document.querySelectorAll('.ver_mais')];
 const close_about=[...document.querySelectorAll('.close_about')];
@@ -29,6 +17,7 @@ window.addEventListener("scroll", ()=>{
     }
     if (window.scrollY > 750){
         recen.classList.add("aparecerSkill");
+        contSkilss.classList.add("heiAuto");
     }
 });
 
