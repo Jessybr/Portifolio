@@ -94,7 +94,7 @@ header {
 }
 
 .cont_skills, .cont_about {
-  height: 1039px;
+  min-height: 1039px;
   background-color: #04234E;
   display: flex;
   align-items: center;
