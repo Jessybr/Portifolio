@@ -93,8 +93,12 @@ header {
   color: #B0228C;
 }
 
-.cont_skills, .cont_about {
-  min-height: 1039px;
+.heiAuto {
+  height: auto !important;
+}
+
+.cont_skills {
+  height: 850px;
   background-color: #04234E;
   display: flex;
   align-items: center;
@@ -110,66 +114,66 @@ header {
     opacity: 1;
   }
 }
-.cont_skills .topic_title h3, .cont_about .topic_title h3 {
+.cont_skills .topic_title h3 {
   margin: 10px;
   text-align: center;
   color: #FFC759;
   font-size: 2rem;
 }
-.cont_skills .aparecerSkill, .cont_about .aparecerSkill {
+.cont_skills .aparecerSkill {
   animation: aparecer 1s ease-in-out;
   display: flex !important;
   flex-direction: column;
   align-items: center;
 }
-.cont_skills .soft, .cont_about .soft, .cont_skills .recen, .cont_about .recen, .cont_skills .hard, .cont_about .hard {
+.cont_skills .soft, .cont_skills .recen, .cont_skills .hard {
   display: none;
   width: 75%;
   margin: 10px;
 }
-.cont_skills .soft h3, .cont_about .soft h3, .cont_skills .recen h3, .cont_about .recen h3, .cont_skills .hard h3, .cont_about .hard h3 {
+.cont_skills .soft h3, .cont_skills .recen h3, .cont_skills .hard h3 {
   margin: 5px;
   text-align: center;
   color: #FFC759;
 }
-.cont_skills .soft ul, .cont_about .soft ul, .cont_skills .recen ul, .cont_about .recen ul, .cont_skills .hard ul, .cont_about .hard ul {
+.cont_skills .soft ul, .cont_skills .recen ul, .cont_skills .hard ul {
   width: 250px;
 }
-.cont_skills .soft ul li, .cont_about .soft ul li, .cont_skills .recen ul li, .cont_about .recen ul li, .cont_skills .hard ul li, .cont_about .hard ul li {
+.cont_skills .soft ul li, .cont_skills .recen ul li, .cont_skills .hard ul li {
   margin: 15px;
   list-style-type: none;
 }
-.cont_skills .soft ul li svg, .cont_about .soft ul li svg, .cont_skills .recen ul li svg, .cont_about .recen ul li svg, .cont_skills .hard ul li svg, .cont_about .hard ul li svg {
+.cont_skills .soft ul li svg, .cont_skills .recen ul li svg, .cont_skills .hard ul li svg {
   margin: 0 5px;
 }
-.cont_skills .hard h3, .cont_about .hard h3 {
+.cont_skills .hard h3 {
   margin: 5px;
   text-align: center;
   color: #FFC759;
 }
-.cont_skills .hard ul, .cont_about .hard ul {
+.cont_skills .hard ul {
   width: 250px;
 }
-.cont_skills .hard ul li, .cont_about .hard ul li {
+.cont_skills .hard ul li {
   margin: 15px;
   list-style-type: none;
 }
-.cont_skills .hard ul li svg, .cont_about .hard ul li svg {
+.cont_skills .hard ul li svg {
   margin: 0 5px;
 }
-.cont_skills .recen h3, .cont_about .recen h3 {
+.cont_skills .recen h3 {
   margin: 5px;
   text-align: center;
   color: #FFC759;
 }
-.cont_skills .recen ul, .cont_about .recen ul {
+.cont_skills .recen ul {
   width: 250px;
 }
-.cont_skills .recen ul li, .cont_about .recen ul li {
+.cont_skills .recen ul li {
   margin: 15px;
   list-style-type: none;
 }
-.cont_skills .recen ul li svg, .cont_about .recen ul li svg {
+.cont_skills .recen ul li svg {
   margin: 0 5px;
 }
 
@@ -297,6 +301,13 @@ header {
 }
 
 .cont_about {
+  height: 370px;
+  background-color: #04234E;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 30px 0;
   height: auto !important;
 }
 .cont_about p {
@@ -406,57 +417,57 @@ header {
     font-size: 19px;
     width: 60%;
   }
-  .cont_skills, .cont_about {
+  .cont_skills {
     height: 800px;
     padding: 4% 0;
   }
-  .cont_skills .aparecerSkill, .cont_about .aparecerSkill {
+  .cont_skills .aparecerSkill {
     animation: aparecer 1s ease-in-out;
     display: flex !important;
     flex-direction: column;
     align-items: center;
   }
-  .cont_skills .soft, .cont_about .soft, .cont_skills .hard, .cont_skills .recen, .cont_about .hard, .cont_about .recen {
+  .cont_skills .soft, .cont_skills .hard, .cont_skills .recen {
     width: 60%;
     margin: 40px 0;
   }
-  .cont_skills .soft ul, .cont_about .soft ul, .cont_skills .hard ul, .cont_skills .recen ul, .cont_about .hard ul, .cont_about .recen ul {
+  .cont_skills .soft ul, .cont_skills .hard ul, .cont_skills .recen ul {
     width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
   }
-  .cont_skills .soft ul li, .cont_about .soft ul li, .cont_skills .hard ul li, .cont_skills .recen ul li, .cont_about .hard ul li, .cont_about .recen ul li {
+  .cont_skills .soft ul li, .cont_skills .hard ul li, .cont_skills .recen ul li {
     width: 203px;
   }
-  .cont_skills .soft ul li svg, .cont_about .soft ul li svg, .cont_skills .hard ul li svg, .cont_skills .recen ul li svg, .cont_about .hard ul li svg, .cont_about .recen ul li svg {
+  .cont_skills .soft ul li svg, .cont_skills .hard ul li svg, .cont_skills .recen ul li svg {
     margin: 0 10px;
   }
-  .cont_skills .hard ul, .cont_about .hard ul {
+  .cont_skills .hard ul {
     width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
   }
-  .cont_skills .hard ul li, .cont_about .hard ul li {
+  .cont_skills .hard ul li {
     width: 203px;
   }
-  .cont_skills .hard ul li svg, .cont_about .hard ul li svg {
+  .cont_skills .hard ul li svg {
     margin: 0 10px;
   }
-  .cont_skills .recen ul, .cont_about .recen ul {
+  .cont_skills .recen ul {
     width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
   }
-  .cont_skills .recen ul li, .cont_about .recen ul li {
+  .cont_skills .recen ul li {
     width: 203px;
   }
-  .cont_skills .recen ul li svg, .cont_about .recen ul li svg {
+  .cont_skills .recen ul li svg {
     margin: 0 10px;
   }
   .cont_proj .projs {
@@ -509,6 +520,9 @@ header {
   .cont_proj .projs .proj_about .sobre {
     width: 48%;
     margin: 30px;
+  }
+  .cont_about {
+    height: 185px;
   }
   .cont_about p {
     width: 55%;
