@@ -118,7 +118,7 @@ header{
         }
     }
 
-    min-height: 1039px;
+    height: 850px;
     background-color: $secundary-color;
     display: flex;
     align-items: center;
@@ -373,7 +373,13 @@ header{
 }
 
 .cont_about{
-    @extend .cont_skills;
+    height: 370px;
+    background-color: $secundary-color;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 30px 0;
     height: auto !important;
 
     p{
@@ -654,6 +660,7 @@ header{
     }
     
     .cont_about{
+        height: 185px;
 
         p{
             width: 55%;
