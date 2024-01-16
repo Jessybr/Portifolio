@@ -1,7 +1,7 @@
 const soft=document.querySelector('.soft');
 const hard=document.querySelector('.hard');
 const recen=document.querySelector('.recen');
-const contSkilss=document.getElementById('cont_skills');
+const contSkills=document.getElementById('skills');
 const projetos=[...document.querySelectorAll('.proj')];
 const ver_mais=[...document.querySelectorAll('.ver_mais')];
 const close_about=[...document.querySelectorAll('.close_about')];
@@ -14,10 +14,10 @@ window.addEventListener("scroll", ()=>{
     }
     if (window.scrollY > 450){
         hard.classList.add("aparecerSkill");
+        contSkills.classList.add("heiAuto");
     }
     if (window.scrollY > 750){
         recen.classList.add("aparecerSkill");
-        contSkilss.classList.add("heiAuto");
     }
 });
 
