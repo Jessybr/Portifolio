@@ -16,7 +16,7 @@
 }
 
 .cont_naveg {
-  background-color: #04234E;
+  background-color: #15396b;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -29,18 +29,18 @@
 }
 
 header {
-  background-color: #B0228C;
+  background-color: #bf6d3a;
 }
 
 .topic_title {
   margin: 10px;
   text-align: center;
-  color: #FFC759;
+  color: #ffe659;
   font-size: 2rem;
 }
 
 .cont_header, .cont_conta, .cont_proj .projs .proj, .cont_proj .projs, .cont_proj {
-  background-color: #B0228C;
+  background-color: #bf6d3a;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,7 +50,7 @@ header {
 .cont_header .cont_img img, .cont_conta .cont_img img, .cont_proj .projs .proj .cont_img img, .cont_proj .cont_img img {
   width: 250px;
   border-radius: 64% 36% 70% 30%/52% 70% 30% 48%;
-  border: 4px solid #FFC759;
+  border: 4px solid #ffe659;
   box-shadow: 9px 6px 13px rgba(73, 13, 58, 0.631372549) inset;
 }
 .cont_header .cont_title, .cont_conta .cont_title, .cont_proj .projs .proj .cont_title, .cont_proj .cont_title {
@@ -62,7 +62,7 @@ header {
 }
 .cont_header .cont_title h1, .cont_conta .cont_title h1, .cont_proj .projs .proj .cont_title h1, .cont_proj .cont_title h1 {
   font-size: 27px;
-  color: #FFC759;
+  color: #ffe659;
   font-weight: 700;
 }
 .cont_header .cont_title h4, .cont_conta .cont_title h4, .cont_proj .projs .proj .cont_title h4, .cont_proj .cont_title h4 {
@@ -73,7 +73,7 @@ header {
   margin: 0 10px;
 }
 .cont_header .cont_title button, .cont_conta .cont_title button, .cont_proj .projs .proj .cont_title button, .cont_proj .cont_title button {
-  background-color: #FFC759;
+  background-color: #ffe659;
   width: 140px;
   border: none;
   border-radius: 10px;
@@ -81,16 +81,16 @@ header {
   margin: 10px 0;
 }
 .cont_header .cont_title button a, .cont_conta .cont_title button a, .cont_proj .projs .proj .cont_title button a, .cont_proj .cont_title button a {
-  color: #B0228C;
+  color: #bf6d3a;
   font-size: 1.2rem;
   text-decoration: none;
   font-weight: 700;
 }
 .cont_header .cont_title button a:hover, .cont_conta .cont_title button a:hover, .cont_proj .cont_title button a:hover {
-  color: #B0228C;
+  color: #bf6d3a;
 }
 .cont_header .cont_title button a:active, .cont_conta .cont_title button a:active, .cont_proj .cont_title button a:active {
-  color: #B0228C;
+  color: #bf6d3a;
 }
 
 .heiAuto {
@@ -99,7 +99,7 @@ header {
 
 .cont_skills {
   height: 1035px;
-  background-color: #04234E;
+  background-color: #15396b;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -117,7 +117,7 @@ header {
 .cont_skills .topic_title h3 {
   margin: 10px;
   text-align: center;
-  color: #FFC759;
+  color: #ffe659;
   font-size: 2rem;
 }
 .cont_skills .aparecerSkill {
@@ -134,7 +134,7 @@ header {
 .cont_skills .soft h3, .cont_skills .recen h3, .cont_skills .hard h3 {
   margin: 5px;
   text-align: center;
-  color: #FFC759;
+  color: #ffe659;
 }
 .cont_skills .soft ul, .cont_skills .recen ul, .cont_skills .hard ul {
   width: 250px;
@@ -149,7 +149,7 @@ header {
 .cont_skills .hard h3 {
   margin: 5px;
   text-align: center;
-  color: #FFC759;
+  color: #ffe659;
 }
 .cont_skills .hard ul {
   width: 250px;
@@ -164,7 +164,7 @@ header {
 .cont_skills .recen h3 {
   margin: 5px;
   text-align: center;
-  color: #FFC759;
+  color: #ffe659;
 }
 .cont_skills .recen ul {
   width: 250px;
@@ -195,9 +195,9 @@ header {
   width: 70%;
   margin: 20px 0;
   padding: 0px;
-  background-color: #04234E;
+  background-color: #15396b;
   border-radius: 12px;
-  border: 3px solid #04234E;
+  border: 3px solid #15396b;
   box-shadow: 6.776px 6.023px 6.776px 0px rgba(51, 5, 49, 0.35);
 }
 .cont_proj .projs .proj .img_carro {
@@ -220,7 +220,7 @@ header {
   background-color: transparent;
 }
 .cont_proj .projs .proj .ver_mais button {
-  background-color: #04234E;
+  background-color: #15396b;
   width: 100%;
   border-radius: 0 0 10px 10px;
   border: none;
@@ -230,7 +230,7 @@ header {
 }
 .cont_proj .projs .proj_about {
   display: none;
-  background-color: #04234E;
+  background-color: #15396b;
 }
 .cont_proj .projs .proj_about .head_proj {
   display: flex;
@@ -248,32 +248,32 @@ header {
 }
 .cont_proj .projs .proj_about .head_proj .title_proj h4 {
   text-align: center;
-  color: #FFC759;
+  color: #ffe659;
   font-size: 1.3rem;
 }
 .cont_proj .projs .proj_about .head_proj button {
-  background-color: #FFC759;
+  background-color: #ffe659;
   width: 140px;
   border: none;
   border-radius: 10px;
   height: 30px;
   margin: 10px;
-  color: #B0228C;
+  color: #bf6d3a;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
 }
 .cont_proj .projs .proj_about .head_proj button a {
-  color: #B0228C;
+  color: #bf6d3a;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
 }
 .cont_proj .projs .proj_about .head_proj button a:hover {
-  color: #B0228C;
+  color: #bf6d3a;
 }
 .cont_proj .projs .proj_about .head_proj button a:active {
-  color: #B0228C;
+  color: #bf6d3a;
 }
 .cont_proj .projs .proj_about .sobre {
   font-size: 0.8rem;
@@ -302,7 +302,7 @@ header {
 
 .cont_about {
   height: 370px;
-  background-color: #04234E;
+  background-color: #15396b;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -328,7 +328,7 @@ header {
 }
 
 .rodape {
-  background-color: #04234E;
+  background-color: #15396b;
   color: white;
   font-size: 1rem;
   padding: 20px;
@@ -365,7 +365,7 @@ header {
     }
   }
   nav {
-    background-color: #04234E;
+    background-color: #15396b;
   }
   nav .cont_naveg {
     width: 50%;
@@ -499,7 +499,7 @@ header {
     top: 209px;
   }
   .cont_proj .projs .proj .ver_mais button {
-    background-color: #04234E;
+    background-color: #15396b;
     width: 200px !important;
     cursor: pointer;
   }
