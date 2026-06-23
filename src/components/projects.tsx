@@ -2,6 +2,7 @@ import { useState } from "react"
 
 function Projects() {
     const [verMaisButton, setVerMaisButton] = useState(false)
+    const [projAboutVisible, setProjAboutVisible] = useState(false)
 
     return (
         <>
@@ -10,19 +11,19 @@ function Projects() {
             <div className="projs">
 
 
-                <div id="proj" className="proj" onMouseEnter={() => setVerMaisButton(true)} onMouseLeave={() => setVerMaisButton(false)}>
+                <div id="proj" className={projAboutVisible ? "proj dispNone" : "proj"} onMouseEnter={() => setVerMaisButton(true)} onMouseLeave={() => setVerMaisButton(false)}>
                     <div id="proj_img1" className="img_carro">
                         <h4>Amor de Casquinha</h4>
                         <img src="images/amor-de-carquinha.png" alt="amor de casquinha site"/>
                     </div>
-                    <div id="ver_mais1" className={verMaisButton ? "ver_mais exibir" : "ver_mais"}>
+                    <div id="ver_mais1" className={verMaisButton ? "ver_mais exibir" : "ver_mais"} onClick={() => setProjAboutVisible(true)}>
                         <button>Ver mais</button>
                     </div>
                 </div>
 
-                <div id="proj_about" className="proj_about">
+                <div id="proj_about" className={projAboutVisible ? "proj_about ver_cont" : "proj_about"} >
                     <div className="head_proj">
-                        <button id="close_about1" className="close_about">Fechar aba</button>
+                        <button id="close_about1" className="close_about" onClick={() => setProjAboutVisible(false)}>Fechar aba</button>
                         <div className="title_proj">
                             <video src="images/videoAmordeCasquinha.mp4" controls></video>
                             <h4>Amor de Casquinha</h4>
