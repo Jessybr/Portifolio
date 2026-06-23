@@ -1,6 +1,3 @@
-//estilização do header
-import '../style/style.css'
-
 function Head() {
     return (
         <>
