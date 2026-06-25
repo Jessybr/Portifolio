@@ -1,6 +1,11 @@
 import FotoEu from '../assets/images/eu.png'
+//import api from "../api/api";
 
-function Perfil() {
+interface PerfilProps {
+    setDisplayFormLogin: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+function Perfil({ setDisplayFormLogin }: PerfilProps) {
     return (
         <>
         <header>
@@ -13,7 +18,7 @@ function Perfil() {
                     <div className="cont_title">
                         <h2>Olá, eu sou a </h2>
                         {/* aqui vai vim o nome pela api */}
-                        <h1>Jéssica Bueno Ramos</h1>
+                        <h1 onClick={() => setDisplayFormLogin(true) }>Jéssica Bueno Ramos</h1>
                         <h4>Sou uma Desenvolvedora de Software apaixonada pelo mundo tecnológico</h4>
                         {/* aqui vai vim o curriculo pela api */}
                         <button><a href="Curriculo09.06.pdf" download="Curriculo-Jessica-Bueno-Ramos.pdf" target="_blank">Currículo</a></button>
