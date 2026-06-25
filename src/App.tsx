@@ -10,6 +10,7 @@ function App() {
 
   return (
     <>
+        <div className={displayFormLogin? "backgound_translucid":"dispNone"}></div>
         <Login 
             displayFormLogin={displayFormLogin}
             setDisplayFormLogin={setDisplayFormLogin}/>
