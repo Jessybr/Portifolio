@@ -7,6 +7,10 @@
   scroll-behavior: smooth;
 }
 
+p, h1, h2, h3, h4 {
+  cursor: default;
+}
+
 .borderR {
   border-radius: 12px 12px 0 0 !important;
 }
@@ -97,6 +101,14 @@ header {
   height: auto !important;
 }
 
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .cont_skills {
   height: 1035px;
   background-color: #15396b;
@@ -105,14 +117,6 @@ header {
   justify-content: flex-start;
   flex-direction: column;
   padding: 30px 0;
-}
-@keyframes aparecer {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 .cont_skills .topic_title h3 {
   margin: 10px;
@@ -335,6 +339,71 @@ header {
   text-align: center;
 }
 
+.fixed {
+  position: fixed !important;
+  top: 30%;
+  left: 5%;
+  z-index: 99;
+  display: flex;
+}
+
+.cont_login {
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 20px 20px 30px 20px;
+  width: 80%;
+  background-color: #ffe659;
+  border-radius: 10px;
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.2196078431);
+}
+.cont_login .fechar_login {
+  align-self: flex-end;
+  padding: 0 6px;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+.cont_login h2 {
+  color: #15396b;
+  margin-bottom: 20px;
+}
+.cont_login form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 90%;
+}
+.cont_login form input {
+  color: black;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.cont_login form button {
+  background-color: #15396b;
+  color: white;
+  padding: 10px;
+  width: 70%;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+.cont_login form button:hover {
+  background-color: #0f294e;
+}
+
+.backgound_translucid {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(75, 65, 65, 0.2);
+  backdrop-filter: blur(1px);
+  z-index: 98;
+}
+
 @media (min-width: 768px) {
   @keyframes imgscale {
     0% {
@@ -530,6 +599,17 @@ header {
   .cont_conta ul {
     display: flex;
     flex-direction: row;
+  }
+  .cont_login {
+    left: 34%;
+    width: 30%;
+  }
+  .cont_login form {
+    width: 50%;
+  }
+  .cont_login form input {
+    padding: 10px;
+    width: 100%;
   }
 }
 
