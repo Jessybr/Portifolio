@@ -1,4 +1,6 @@
 import FotoEu from '../assets/images/eu.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 //import api from "../api/api";
 
 interface PerfilProps {
@@ -10,6 +12,7 @@ function Perfil({ setDisplayFormLogin }: PerfilProps) {
         <>
         <header>
             <div className="cont_inicio">
+                <FontAwesomeIcon icon={faPenToSquare} className="faPenToSquare" onClick={() => setDisplayPerfilForm(true)}/>
                 <div className="cont_header">
                     <div className="cont_img">
                         {/* aqui vai vim a imagem pela api */}
