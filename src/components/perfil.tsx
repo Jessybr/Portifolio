@@ -1,13 +1,16 @@
 import FotoEu from '../assets/images/eu.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 //import api from "../api/api";
 
 interface PerfilProps {
     setDisplayFormLogin: React.Dispatch<React.SetStateAction<boolean>>
+    displayPerfilForm: boolean
+    setDisplayPerfilForm: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-function Perfil({ setDisplayFormLogin }: PerfilProps) {
+function Perfil({ setDisplayFormLogin, displayPerfilForm, setDisplayPerfilForm }: PerfilProps) {
     return (
         <>
         <header>
