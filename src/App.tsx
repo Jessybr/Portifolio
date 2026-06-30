@@ -4,13 +4,16 @@ import Perfil from './components/perfil.tsx'
 import './style/style.css'
 import Login from './components/login.tsx'
 import { useState } from 'react'
+import PerfilForm from './components/forms/perfilForm.tsx'
 
 function App() {
     const [displayFormLogin, setDisplayFormLogin] = useState(false)
+    const [displayPerfilForm, setDisplayPerfilForm] = useState(false)
+    const translucid = displayFormLogin || displayPerfilForm
 
   return (
     <>
-        <div className={displayFormLogin? "backgound_translucid":"dispNone"}></div>
+        <div className={translucid? "background_translucid":"dispNone"}></div>
         <Login 
             displayFormLogin={displayFormLogin}
             setDisplayFormLogin={setDisplayFormLogin}/>
@@ -19,7 +22,9 @@ function App() {
             setDisplayPerfilForm={setDisplayPerfilForm}/>
         <Navigation />
         <Perfil 
-            setDisplayFormLogin={setDisplayFormLogin}/>
+            setDisplayFormLogin={setDisplayFormLogin}
+            displayPerfilForm={displayPerfilForm}
+            setDisplayPerfilForm={setDisplayPerfilForm}/>
         <Main />
     </>
   )
