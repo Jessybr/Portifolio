@@ -14,6 +14,9 @@ function App() {
         <Login 
             displayFormLogin={displayFormLogin}
             setDisplayFormLogin={setDisplayFormLogin}/>
+        <PerfilForm 
+            displayPerfilForm={displayPerfilForm}
+            setDisplayPerfilForm={setDisplayPerfilForm}/>
         <Navigation />
         <Perfil 
             setDisplayFormLogin={setDisplayFormLogin}/>
