@@ -49,6 +49,95 @@ header{
     font-size: 2rem;
 }
 
+.faPenToSquare{
+    position: absolute;
+    top: 14%;
+    left: 90%;
+    z-index: 97;
+}
+
+.perfilForm {
+    top: 20%;
+    left: 9%;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    padding: 20px 20px 30px 20px;
+    width: 72%;
+    height: 50%;
+    background-color: colors-font.$tertiary-color;
+    border-radius: 10px;
+    box-shadow: 10px 10px 0px 0px #00000038;
+    overflow: auto;
+    scrollbar-width: none; 
+
+    ::-webkit-scrollbar {
+        display: none;   
+    }
+
+    h2 {
+        color: colors-font.$secundary-color;
+        margin-bottom: 20px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 90%;
+
+        input, textarea {
+            color: black;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        input[type=file] {
+            border: none;
+            padding-top: 0;
+        }
+        
+        input::file-selector-button {
+            background-color: colors-font.$secundary-color;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            margin-right: 15px;
+        }
+
+        input::file-selector-button:hover {
+            background-color: #0f294e;
+        }
+
+        label {
+            align-self: start;
+            font-size: 12pt;
+            color: #403f3f;
+        }
+
+        button {
+            background-color: colors-font.$secundary-color;
+            color: white;
+            padding: 10px;
+            width: 70%;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0f294e;
+        }
+    }
+}
+
 .cont_header{
     background-color: colors-font.$primary-color;
     display: flex;
@@ -424,13 +513,21 @@ header{
 
 .fixed{
     position: fixed !important; 
-    top: 30%;
-    left: 5%;
     z-index: 99;
     display: flex;
 }
 
+.fechar_login {
+    align-self: flex-end;
+    padding: 0 2%;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .cont_login {
+    top: 30%;
+    left: 5%;
     flex-direction: column;
     align-items: center;
     margin: auto;
@@ -439,14 +536,6 @@ header{
     background-color: colors-font.$tertiary-color;
     border-radius: 10px;
     box-shadow: 10px 10px 0px 0px #00000038;
-
-    .fechar_login {
-        align-self: flex-end;
-        padding: 0 6px;
-        color: black;
-        font-weight: bold;
-        cursor: pointer;
-    }
 
     h2 {
         color: colors-font.$secundary-color;
@@ -484,12 +573,12 @@ header{
     }
 }
 
-.backgound_translucid {
+.background_translucid {
     position: fixed;
     width: 100%;
     height: 100%;
     background: rgb(75 65 65 / 20%);
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(5px);
     z-index: 98;
 }
 
@@ -544,6 +633,17 @@ header{
                     border-color: #4a74aed4;
                 }
             }
+        }
+    }
+    
+    .perfilForm {
+        top: 20%;
+        left: 34%;
+        width: 30%;
+        height: 60%;
+
+        form {
+            width: 90%;
         }
     }
 
