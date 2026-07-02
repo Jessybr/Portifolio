@@ -1,17 +1,20 @@
 import AboutMe from "./aboutMe"
 import Contact from "./contact"
-import Footer from "./footer"
 import Projects from "./projects"
-import Skills from "./skills"
+import SkillsList from "./skillsList"
 
-function Main() {
+interface MainProps {
+    setDisplaySkillForm: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+function Main({ setDisplaySkillForm }: MainProps) {
     return (
         <main>
-            <Skills />
+            <SkillsList
+             setDisplaySkillForm={setDisplaySkillForm}/>
             <Projects />
             <AboutMe />
             <Contact />
-            <Footer />
         </main>
     )
 }
