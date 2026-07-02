@@ -9,7 +9,8 @@ import PerfilForm from './components/forms/perfilForm.tsx'
 function App() {
     const [displayFormLogin, setDisplayFormLogin] = useState(false)
     const [displayPerfilForm, setDisplayPerfilForm] = useState(false)
-    const translucid = displayFormLogin || displayPerfilForm
+    const [displaySkillForm, setDisplaySkillForm] = useState(false)
+    const translucid = displayFormLogin || displayPerfilForm || displaySkillForm
 
   return (
     <>
@@ -28,7 +29,8 @@ function App() {
             setDisplayFormLogin={setDisplayFormLogin}
             displayPerfilForm={displayPerfilForm}
             setDisplayPerfilForm={setDisplayPerfilForm}/>
-        <Main />
+        <Main 
+            setDisplaySkillForm={setDisplaySkillForm}/>
     </>
   )
 }
