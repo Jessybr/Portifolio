@@ -5,6 +5,8 @@ import './style/style.css'
 import Login from './components/login.tsx'
 import { useState } from 'react'
 import PerfilForm from './components/forms/perfilForm.tsx'
+import SkillForm from './components/forms/skillForm.tsx'
+import Footer from './components/footer.tsx'
 
 function App() {
     const [displayFormLogin, setDisplayFormLogin] = useState(false)
@@ -31,6 +33,7 @@ function App() {
             setDisplayPerfilForm={setDisplayPerfilForm}/>
         <Main 
             setDisplaySkillForm={setDisplaySkillForm}/>
+        <Footer />
     </>
   )
 }
