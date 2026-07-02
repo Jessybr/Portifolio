@@ -20,6 +20,9 @@ function App() {
         <PerfilForm 
             displayPerfilForm={displayPerfilForm}
             setDisplayPerfilForm={setDisplayPerfilForm}/>
+        <SkillForm 
+            displaySkillForm={displaySkillForm}
+            setDisplaySkillForm={setDisplaySkillForm}/>
         <Navigation />
         <Perfil 
             setDisplayFormLogin={setDisplayFormLogin}
