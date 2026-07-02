@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
-function Skills() {
+interface SkillListProps {
+    setDisplaySkillForm: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+function SkillsList({ setDisplaySkillForm }: SkillListProps) {
     const [mostrarSoft, setMostrarSoft] = useState(false)
   const [mostrarHard, setMostrarHard] = useState(false)
   const [alturaAuto, setAlturaAuto] = useState(false)
@@ -31,6 +37,7 @@ function Skills() {
     return (
         <>
         <div className={alturaAuto ? 'cont_skills heiAuto' : 'cont_skills'} id="skills">
+            <FontAwesomeIcon icon={faPenToSquare} className="faPenToSquareSkill" onClick={() => setDisplaySkillForm(true)}/>
             <div className="topic_title">
                 <h3 id="habili">Habilidades</h3>
             </div>
@@ -101,4 +108,4 @@ function Skills() {
     )
 }
 
-export default Skills
+export default SkillsList
