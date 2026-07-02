@@ -48,6 +48,16 @@ header {
   top: 14%;
   left: 90%;
   z-index: 97;
+  cursor: pointer;
+}
+
+.faPenToSquareSkill {
+  position: relative;
+  left: 90%;
+  top: 0%;
+  align-self: start;
+  z-index: 97;
+  cursor: pointer;
 }
 
 .perfilForm {
@@ -178,6 +188,71 @@ header {
 
 .heiAuto {
   height: auto !important;
+}
+
+.skillForm {
+  top: 20%;
+  left: 9%;
+  flex-direction: column;
+  margin: auto;
+  padding: 20px 20px 30px 20px;
+  width: 72%;
+  height: 50%;
+  background-color: #ffe659;
+  border-radius: 10px;
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.2196078431);
+  overflow: auto;
+  scrollbar-width: none;
+  gap: 15px;
+}
+.skillForm h2 {
+  color: #15396b;
+  margin-bottom: 20px;
+  justify-self: center;
+}
+.skillForm form {
+  display: flex;
+  align-items: first baseline;
+  gap: 10px;
+  width: 100%;
+}
+.skillForm form input {
+  color: black;
+  padding: 10px;
+  width: 70%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.skillForm form button {
+  background-color: #15396b;
+  color: white;
+  padding: 10px;
+  width: 30%;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+.skillForm form button:hover {
+  background-color: #0f294e;
+}
+
+.skill_cont {
+  margin: 20px auto;
+  width: 90%;
+}
+.skill_cont .skillSpan {
+  display: flex;
+  background-color: #bf6d3a;
+  color: white;
+  width: fit-content;
+  border-radius: 20px;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+  padding: 8px 14px;
+}
+.skill_cont .skillSpan span {
+  cursor: pointer;
 }
 
 @keyframes aparecer {
@@ -573,6 +648,22 @@ header {
   }
   .cont_inicio .cont_title h4 {
     font-size: 19px;
+    width: 60%;
+  }
+  .skillForm {
+    top: 20%;
+    left: 28%;
+    width: 40%;
+    height: 60%;
+  }
+  .skillForm form {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  .skillForm form button {
+    width: 25%;
+  }
+  .skillForm form input {
     width: 60%;
   }
   .cont_skills {

@@ -54,6 +54,16 @@ header{
     top: 14%;
     left: 90%;
     z-index: 97;
+    cursor: pointer;
+}
+
+.faPenToSquareSkill{
+    position: relative;
+    left: 90%;
+    top: 0%;
+    align-self: start;
+    z-index: 97;
+    cursor: pointer;
 }
 
 .perfilForm {
@@ -204,6 +214,79 @@ header{
 .heiAuto{
     height: auto !important;
 }
+
+.skillForm{
+    top: 20%;
+    left: 9%;
+    flex-direction: column;
+    margin: auto;
+    padding: 20px 20px 30px 20px;
+    width: 72%;
+    height: 50%;
+    background-color: colors-font.$tertiary-color;
+    border-radius: 10px;
+    box-shadow: 10px 10px 0px 0px #00000038;
+    overflow: auto;
+    scrollbar-width: none; 
+    gap: 15px;
+
+    h2 {
+        color: colors-font.$secundary-color;
+        margin-bottom: 20px;
+        justify-self: center;
+    }
+
+    form {
+        display: flex;
+        align-items: first baseline;
+        gap: 10px;
+        width: 100%;
+
+        input {
+            color: black;
+            padding: 10px;
+            width: 70%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: colors-font.$secundary-color;
+            color: white;
+            padding: 10px;
+            width: 30%;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0f294e;
+        }
+    }
+}
+
+.skill_cont {
+    margin: 20px auto;
+    width: 90%;
+
+    .skillSpan {
+        display: flex;
+        background-color: colors-font.$primary-color;
+        color: white;
+        width: fit-content;
+        border-radius: 20px;
+        flex-direction: row;
+        align-items: center;
+        gap: 18px;
+        padding: 8px 14px;
+
+        span{
+            cursor: pointer;
+        }
+    }
+}
+
 
 .cont_skills{
     @keyframes aparecer {
@@ -694,6 +777,26 @@ header{
             }
             h4{
                 font-size: 19px;
+                width: 60%;
+            }
+        }
+    }
+    
+    .skillForm {
+        top: 20%;
+        left: 28%;
+        width: 40%;
+        height: 60%;
+
+        form {
+            width: 100%;
+            justify-content: space-evenly;
+
+            button{
+                width: 25%;
+            }
+
+            input{
                 width: 60%;
             }
         }
