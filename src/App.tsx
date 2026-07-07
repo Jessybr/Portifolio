@@ -7,12 +7,14 @@ import { useState } from 'react'
 import PerfilForm from './components/forms/perfilForm.tsx'
 import SkillForm from './components/forms/skillForm.tsx'
 import Footer from './components/footer.tsx'
+import ProjectForm from './components/forms/projectForm.tsx'
 
 function App() {
     const [displayFormLogin, setDisplayFormLogin] = useState(false)
     const [displayPerfilForm, setDisplayPerfilForm] = useState(false)
     const [displaySkillForm, setDisplaySkillForm] = useState(false)
-    const translucid = displayFormLogin || displayPerfilForm || displaySkillForm
+    const [displayProjectForm, setDisplayProjectForm] = useState(false)
+    const translucid = displayFormLogin || displayPerfilForm || displaySkillForm || displayProjectForm
 
   return (
     <>
@@ -35,7 +37,8 @@ function App() {
             displayPerfilForm={displayPerfilForm}
             setDisplayPerfilForm={setDisplayPerfilForm}/>
         <Main 
-            setDisplaySkillForm={setDisplaySkillForm}/>
+            setDisplaySkillForm={setDisplaySkillForm}
+            setDisplayProjectForm={setDisplayProjectForm}/>
         <Footer />
     </>
   )
