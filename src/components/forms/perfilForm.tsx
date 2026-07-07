@@ -14,6 +14,8 @@ function PerfilForm({ displayPerfilForm, setDisplayPerfilForm }: PerfilFormProps
                 <textarea name="descricao" id="descricao" placeholder="Descrição"></textarea>
                 <input type="text" name="githubURL" id="githubURL" placeholder="Github"/>
                 <input type="text" name="linkedinURL" id="linkedinURL" placeholder="Linkedin"/>
+                <input type="text" name="email" id="email" placeholder="Email"/>
+                <input type="text" name="celular" id="celular" placeholder="Celular"/>
                 <label htmlFor="curriculoSRC">Currículo</label>
                 <input type="file" name="curriculoSRC" id="curriculoSRC" placeholder="Currículo"/>
                 <label htmlFor="fotoSRC">Foto</label>
