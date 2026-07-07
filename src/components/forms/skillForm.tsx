@@ -1,4 +1,4 @@
-import SkillSpan from "../skillSpan"
+import SkillSpan from "../main/skillSpan"
 
 interface SkillFormProps {
     displaySkillForm: boolean
