@@ -5,14 +5,16 @@ import SkillsList from "./skillsList"
 
 interface MainProps {
     setDisplaySkillForm: React.Dispatch<React.SetStateAction<boolean>>
+    setDisplayProjectForm: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-function Main({ setDisplaySkillForm }: MainProps) {
+function Main({ setDisplaySkillForm, setDisplayProjectForm }: MainProps) {
     return (
         <main>
             <SkillsList
-             setDisplaySkillForm={setDisplaySkillForm}/>
-            <Projects />
+                setDisplaySkillForm={setDisplaySkillForm}/>
+            <Projects 
+                setDisplayProjectForm={setDisplayProjectForm}/>
             <AboutMe />
             <Contact />
         </main>
