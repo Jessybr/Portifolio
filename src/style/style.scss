@@ -12,7 +12,7 @@ body{
     @extend *;
 }
 
-p, h1, h2, h3, h4 {
+p, h1, h2, h3, h4{
     cursor: default;
 }
 
@@ -111,35 +111,35 @@ header{
     @extend .faPenToSquareSkill;
 }
 
-.perfilForm {
+.perfilForm{
     @extend .initFormConfig;
 
-    ::-webkit-scrollbar {
+    ::-webkit-scrollbar{
         display: none;   
     }
 
-    h2 {
+    h2{
         @extend .initH2;
     }
 
-    form {
+    form{
         @extend .initForm;
         flex-direction: column;
         align-items: center;
         width: 90%;
         margin: auto;
 
-        input, textarea {
+        input, textarea{
             @extend .initInputTextArea;
             width: 100%;
         }
 
-        input[type=file] {
+        input[type=file]{
             border: none;
             padding-top: 0;
         }
         
-        input::file-selector-button {
+        input::file-selector-button{
             background-color: colors-font.$secundary-color;
             color: #ffffff;
             border: none;
@@ -151,22 +151,22 @@ header{
             margin-right: 15px;
         }
 
-        input::file-selector-button:hover {
+        input::file-selector-button:hover{
             background-color: #0f294e;
         }
 
-        label {
+        label{
             align-self: start;
             font-size: 12pt;
             color: #403f3f;
         }
 
-        button {
+        button{
             @extend .initButton;
             width: 70%;
         }
 
-        button:hover {
+        button:hover{
             background-color: #0f294e;
         }
     }
@@ -243,37 +243,37 @@ header{
     @extend .initFormConfig;
     gap: 15px;
 
-    h2 {
+    h2{
         @extend .initH2;
         justify-self: center;
     }
 
-    form {
+    form{
         @extend .initForm;
         align-items: first baseline;
         width: 100%;
 
-        input {
+        input{
             @extend .initInputTextArea;
             width: 70%;
         }
 
-        button {
+        button{
             @extend .initButton;
             width: 30%;
         }
 
-        button:hover {
+        button:hover{
             background-color: #0f294e;
         }
     }
 }
 
-.skill_cont {
+.skill_cont{
     margin: 20px auto;
     width: 90%;
 
-    .skillSpan {
+    .skillSpan{
         display: flex;
         background-color: colors-font.$primary-color;
         color: white;
@@ -292,11 +292,11 @@ header{
 
 
 .cont_skills{
-    @keyframes aparecer {
-        from {
+    @keyframes aparecer{
+        from{
           opacity: 0;
         }
-        to {
+        to{
           opacity: 1;
         }
     }
@@ -319,7 +319,7 @@ header{
         }
     }
 
-    .aparecerSkill {
+    .aparecerSkill{
         animation: aparecer 1s ease-in-out;
         display: flex !important;
             flex-direction: column;
@@ -395,7 +395,7 @@ header{
 }
 
 
-.cont_proj {
+.cont_proj{
     @extend .cont_header;
 
     .ver_cont{
@@ -575,29 +575,29 @@ header{
     @extend .initFormConfig;
     gap: 15px;
 
-    h2 {
+    h2{
         @extend .initH2;
         align-self: center;
     }
 
-    form {
+    form{
         @extend .initForm;
         flex-direction: column;
         align-items: center;
         width: 90%;
         margin: auto;
 
-        input, textarea  {
+        input, textarea {
             @extend .initInputTextArea;
             width: 70%; 
         }
 
-        input[type=file] {
+        input[type=file]{
             border: none;
             padding-top: 0;
         }
         
-        input::file-selector-button {
+        input::file-selector-button{
             background-color: colors-font.$secundary-color;
             color: #ffffff;
             border: none;
@@ -609,7 +609,7 @@ header{
             margin-right: 15px;
         }
 
-        input::file-selector-button:hover {
+        input::file-selector-button:hover{
             background-color: #0f294e;
         }
 
@@ -633,12 +633,12 @@ header{
             }
         }
 
-        button {
+        button{
             @extend .initButton;
             width: 40%;
         }
 
-        button:hover {
+        button:hover{
             background-color: #0f294e;
         }
 
@@ -680,7 +680,7 @@ header{
     display: flex;
 }
 
-.fechar_login {
+.fechar_login{
     align-self: flex-end;
     padding: 0 2%;
     color: black;
@@ -688,7 +688,7 @@ header{
     cursor: pointer;
 }
 
-.cont_login {
+.cont_login{
     top: 30%;
     left: 5%;
     flex-direction: column;
@@ -700,19 +700,19 @@ header{
     border-radius: 10px;
     box-shadow: 10px 10px 0px 0px #00000038;
 
-    h2 {
+    h2{
         color: colors-font.$secundary-color;
         margin-bottom: 20px;
     }
 
-    form {
+    form{
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 10px;
         width: 90%;
 
-        input {
+        input{
             color: black;
             padding: 10px;
             width: 100%;
@@ -720,7 +720,7 @@ header{
             border: 1px solid #ccc;
         }
 
-        button {
+        button{
             background-color: colors-font.$secundary-color;
             color: white;
             padding: 10px;
@@ -730,13 +730,13 @@ header{
             cursor: pointer;
         }
 
-        button:hover {
+        button:hover{
             background-color: #0f294e;
         }
     }
 }
 
-.background_translucid {
+.background_translucid{
     position: fixed;
     width: 100%;
     height: 100%;
@@ -746,20 +746,20 @@ header{
 }
 
 @media (min-width: 768px){
-    @keyframes imgscale {
-        0% {
+    @keyframes imgscale{
+        0%{
           transform: scale(1);
         }
         50%{
             transform: scale(1.15);
         }
-        100% {
+        100%{
           transform: scale(1);
         }
     }
 
-    @keyframes raibow {
-        0% {
+    @keyframes raibow{
+        0%{
             background: linear-gradient(0deg, #ff2c2cc3 0%, #ffec3fc2 26%, #3cff6db1 48%, #575dffc7 72%, #ff36ffc2 100%); 
         }
         25%{
@@ -771,7 +771,7 @@ header{
         75%{
             background: linear-gradient(0deg, #3cff6db1 0%, #575dffc7 24%, #ff36ffc2 50%, #ff2c2cc3 76%, #ffec3fc2 100%);
         }
-        100% {
+        100%{
             background: linear-gradient(0deg, #ffec3fc2 0%, #3cff6db1 22%, #575dffc7 50%, #ff36ffc2 77%, #ff2c2cc3 100%);
         }
     }
@@ -806,10 +806,10 @@ header{
         }
     }
     
-    .perfilForm {
+    .perfilForm{
         @extend .initFormConfigMedia;
 
-        form {
+        form{
             width: 90%;
         }
     }
@@ -866,10 +866,10 @@ header{
         }
     }
     
-    .skillForm {
+    .skillForm{
         @extend .initFormConfigMedia;
 
-        form {
+        form{
             width: 100%;
             justify-content: space-evenly;
 
@@ -887,7 +887,7 @@ header{
         height: 800px;
         padding: 4% 0;
 
-        .aparecerSkill {
+        .aparecerSkill{
             animation: aparecer 1s ease-in-out;
             display: flex !important;
                 flex-direction: column;
@@ -1031,7 +1031,6 @@ header{
 
 
     .cont_conta{
-
         ul{
             display: flex;
             flex-direction: row;
@@ -1039,14 +1038,14 @@ header{
         }
     }
 
-    .cont_login {
+    .cont_login{
         left: 34%;
         width: 30%;
 
-        form {
+        form{
             width: 50%;
 
-            input {
+            input{
                 padding: 10px;
                 width: 100%;
             }
