@@ -1,6 +1,6 @@
 import AboutMe from "./aboutMe"
 import Contact from "./contact"
-import Projects from "./projects"
+import Projects from "./projectList"
 import SkillsList from "./skillsList"
 
 interface MainProps {
