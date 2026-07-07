@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 interface SkillListProps {
     setDisplaySkillForm: React.Dispatch<React.SetStateAction<boolean>>
