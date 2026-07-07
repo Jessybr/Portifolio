@@ -26,6 +26,9 @@ function App() {
         <SkillForm 
             displaySkillForm={displaySkillForm}
             setDisplaySkillForm={setDisplaySkillForm}/>
+        <ProjectForm 
+            displayProjectForm={displayProjectForm}
+            setDisplayProjectForm={setDisplayProjectForm}/>
         <Navigation />
         <Perfil 
             setDisplayFormLogin={setDisplayFormLogin}
