@@ -1,12 +1,19 @@
 import { useState } from "react"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
-function Projects() {
+interface ProjectsProps {
+    setDisplayProjectForm: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+function Projects({ setDisplayProjectForm }: ProjectsProps) {
     const [verMaisButton, setVerMaisButton] = useState(false)
     const [projAboutVisible, setProjAboutVisible] = useState(false)
 
     return (
         <>
         <div id="proje" className="cont_proj">
+            <FontAwesomeIcon icon={faPenToSquare} className="faPenToSquareProject" onClick={() => setDisplayProjectForm(true)}/>
                 <h3 className="topic_title">Projetos</h3>
             <div className="projs">
 
