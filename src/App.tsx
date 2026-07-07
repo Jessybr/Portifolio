@@ -1,4 +1,4 @@
-import Main from './components/main.tsx'
+import Main from './components/main/main.tsx'
 import Navigation from './components/navigation.tsx'
 import Perfil from './components/perfil.tsx'
 import './style/style.css'
