@@ -24,6 +24,47 @@ p, h1, h2, h3, h4 {
     display: none !important;
 }
 
+.initFormConfig{
+    left: 9%; 
+    top: 20%; 
+    flex-direction: column; 
+    margin: auto; 
+    padding: 20px 20px 30px 20px; 
+    width: 72%; 
+    height: 50%; 
+    background-color: colors-font.$tertiary-color; 
+    border-radius: 10px; 
+    box-shadow: 10px 10px 0px 0px #00000038; 
+    overflow: auto; 
+    scrollbar-width: none;  
+
+    .initH2{
+        color: colors-font.$secundary-color; 
+        margin-bottom: 20px; 
+    }
+
+    .initForm{
+        display: flex;
+        gap: 10px;
+    }
+
+    .initInputTextArea{
+        color: black;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .initButton{
+        background-color: colors-font.$secundary-color;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+    }
+}
+
 .cont_naveg{
     background-color: colors-font.$secundary-color;
     display: flex;
@@ -71,42 +112,26 @@ header{
 }
 
 .perfilForm {
-    top: 20%;
-    left: 9%;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
-    padding: 20px 20px 30px 20px;
-    width: 72%;
-    height: 50%;
-    background-color: colors-font.$tertiary-color;
-    border-radius: 10px;
-    box-shadow: 10px 10px 0px 0px #00000038;
-    overflow: auto;
-    scrollbar-width: none; 
+    @extend .initFormConfig;
 
     ::-webkit-scrollbar {
         display: none;   
     }
 
     h2 {
-        color: colors-font.$secundary-color;
-        margin-bottom: 20px;
+        @extend .initH2;
     }
 
     form {
-        display: flex;
+        @extend .initForm;
         flex-direction: column;
         align-items: center;
-        gap: 10px;
         width: 90%;
+        margin: auto;
 
         input, textarea {
-            color: black;
-            padding: 10px;
+            @extend .initInputTextArea;
             width: 100%;
-            border-radius: 5px;
-            border: 1px solid #ccc;
         }
 
         input[type=file] {
@@ -137,13 +162,8 @@ header{
         }
 
         button {
-            background-color: colors-font.$secundary-color;
-            color: white;
-            padding: 10px;
+            @extend .initButton;
             width: 70%;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
         }
 
         button:hover {
@@ -220,48 +240,27 @@ header{
 }
 
 .skillForm{
-    top: 20%;
-    left: 9%;
-    flex-direction: column;
-    margin: auto;
-    padding: 20px 20px 30px 20px;
-    width: 72%;
-    height: 50%;
-    background-color: colors-font.$tertiary-color;
-    border-radius: 10px;
-    box-shadow: 10px 10px 0px 0px #00000038;
-    overflow: auto;
-    scrollbar-width: none; 
+    @extend .initFormConfig;
     gap: 15px;
 
     h2 {
-        color: colors-font.$secundary-color;
-        margin-bottom: 20px;
+        @extend .initH2;
         justify-self: center;
     }
 
     form {
-        display: flex;
+        @extend .initForm;
         align-items: first baseline;
-        gap: 10px;
         width: 100%;
 
         input {
-            color: black;
-            padding: 10px;
+            @extend .initInputTextArea;
             width: 70%;
-            border-radius: 5px;
-            border: 1px solid #ccc;
         }
 
         button {
-            background-color: colors-font.$secundary-color;
-            color: white;
-            padding: 10px;
+            @extend .initButton;
             width: 30%;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
         }
 
         button:hover {
@@ -573,40 +572,24 @@ header{
 }
 
 .projectForm{
-    top: 20%;
-    left: 9%;
-    flex-direction: column;
-    margin: auto;
-    padding: 20px 20px 30px 20px;
-    width: 72%;
-    height: 50%;
-    background-color: colors-font.$tertiary-color;
-    border-radius: 10px;
-    box-shadow: 10px 10px 0px 0px #00000038;
-    overflow: auto;
-    scrollbar-width: none; 
+    @extend .initFormConfig;
     gap: 15px;
 
     h2 {
-        color: colors-font.$secundary-color;
-        margin-bottom: 20px;
+        @extend .initH2;
         align-self: center;
     }
 
     form {
-        display: flex;
+        @extend .initForm;
         flex-direction: column;
         align-items: center;
-        gap: 10px;
         width: 90%;
         margin: auto;
 
         input, textarea  {
-            color: black;
-            padding: 10px;
-            width: 70%;
-            border-radius: 5px;
-            border: 1px solid #ccc;
+            @extend .initInputTextArea;
+            width: 70%; 
         }
 
         input[type=file] {
@@ -651,13 +634,8 @@ header{
         }
 
         button {
-            background-color: colors-font.$secundary-color;
-            color: white;
-            padding: 10px;
+            @extend .initButton;
             width: 40%;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
         }
 
         button:hover {
@@ -798,6 +776,13 @@ header{
         }
     }
 
+    .initFormConfigMedia{
+        top: 20%;
+        left: 32%;
+        width: 35%;
+        height: 60%;
+    }
+
     nav{
         background-color: colors-font.$secundary-color;
 
@@ -822,10 +807,7 @@ header{
     }
     
     .perfilForm {
-        top: 20%;
-        left: 32%;
-        width: 35%;
-        height: 60%;
+        @extend .initFormConfigMedia;
 
         form {
             width: 90%;
@@ -885,10 +867,7 @@ header{
     }
     
     .skillForm {
-        top: 20%;
-        left: 31%;
-        width: 35%;
-        height: 60%;
+        @extend .initFormConfigMedia;
 
         form {
             width: 100%;
@@ -953,29 +932,10 @@ header{
                 }
             }
         }
-        .recen{
-
-            ul{
-                width: 100%;
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-    
-                li{
-                    width: 203px;
-
-                    svg{
-                        margin: 0 10px;
-                    }
-                }
-            }
-        }
     }
 
     .projectForm{
-        width: 35%;
-        left: 31.5%;
+        @extend .initFormConfigMedia;
 
         form{
             width: 90%;

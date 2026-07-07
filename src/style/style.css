@@ -19,6 +19,43 @@ p, h1, h2, h3, h4 {
   display: none !important;
 }
 
+.initFormConfig, .projectForm, .skillForm, .perfilForm {
+  left: 9%;
+  top: 20%;
+  flex-direction: column;
+  margin: auto;
+  padding: 20px 20px 30px 20px;
+  width: 72%;
+  height: 50%;
+  background-color: #ffe659;
+  border-radius: 10px;
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.2196078431);
+  overflow: auto;
+  scrollbar-width: none;
+}
+.initFormConfig .initH2, .projectForm .initH2, .projectForm h2, .skillForm .initH2, .skillForm h2, .perfilForm .initH2, .perfilForm h2 {
+  color: #15396b;
+  margin-bottom: 20px;
+}
+.initFormConfig .initForm, .projectForm .initForm, .projectForm form, .skillForm .initForm, .skillForm form, .perfilForm .initForm, .perfilForm form {
+  display: flex;
+  gap: 10px;
+}
+.initFormConfig .initInputTextArea, .projectForm .initInputTextArea, .projectForm form input, .projectForm form textarea, .skillForm .initInputTextArea, .skillForm form input, .perfilForm .initInputTextArea, .perfilForm form input, .perfilForm form textarea {
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.initFormConfig .initButton, .projectForm .initButton, .projectForm form button, .skillForm .initButton, .skillForm form button, .perfilForm .initButton, .perfilForm form button {
+  background-color: #15396b;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
 .cont_naveg {
   background-color: #15396b;
   display: flex;
@@ -60,41 +97,17 @@ header {
   cursor: pointer;
 }
 
-.perfilForm {
-  top: 20%;
-  left: 9%;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
-  padding: 20px 20px 30px 20px;
-  width: 72%;
-  height: 50%;
-  background-color: #ffe659;
-  border-radius: 10px;
-  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.2196078431);
-  overflow: auto;
-  scrollbar-width: none;
-}
 .perfilForm ::-webkit-scrollbar {
   display: none;
 }
-.perfilForm h2 {
-  color: #15396b;
-  margin-bottom: 20px;
-}
 .perfilForm form {
-  display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
   width: 90%;
+  margin: auto;
 }
 .perfilForm form input, .perfilForm form textarea {
-  color: black;
-  padding: 10px;
   width: 100%;
-  border-radius: 5px;
-  border: 1px solid #ccc;
 }
 .perfilForm form input[type=file] {
   border: none;
@@ -120,13 +133,7 @@ header {
   color: #403f3f;
 }
 .perfilForm form button {
-  background-color: #15396b;
-  color: white;
-  padding: 10px;
   width: 70%;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
 }
 .perfilForm form button:hover {
   background-color: #0f294e;
@@ -191,46 +198,20 @@ header {
 }
 
 .skillForm {
-  top: 20%;
-  left: 9%;
-  flex-direction: column;
-  margin: auto;
-  padding: 20px 20px 30px 20px;
-  width: 72%;
-  height: 50%;
-  background-color: #ffe659;
-  border-radius: 10px;
-  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.2196078431);
-  overflow: auto;
-  scrollbar-width: none;
   gap: 15px;
 }
 .skillForm h2 {
-  color: #15396b;
-  margin-bottom: 20px;
   justify-self: center;
 }
 .skillForm form {
-  display: flex;
   align-items: first baseline;
-  gap: 10px;
   width: 100%;
 }
 .skillForm form input {
-  color: black;
-  padding: 10px;
   width: 70%;
-  border-radius: 5px;
-  border: 1px solid #ccc;
 }
 .skillForm form button {
-  background-color: #15396b;
-  color: white;
-  padding: 10px;
   width: 30%;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
 }
 .skillForm form button:hover {
   background-color: #0f294e;
@@ -474,39 +455,19 @@ header {
 }
 
 .projectForm {
-  top: 20%;
-  left: 9%;
-  flex-direction: column;
-  margin: auto;
-  padding: 20px 20px 30px 20px;
-  width: 72%;
-  height: 50%;
-  background-color: #ffe659;
-  border-radius: 10px;
-  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.2196078431);
-  overflow: auto;
-  scrollbar-width: none;
   gap: 15px;
 }
 .projectForm h2 {
-  color: #15396b;
-  margin-bottom: 20px;
   align-self: center;
 }
 .projectForm form {
-  display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
   width: 90%;
   margin: auto;
 }
 .projectForm form input, .projectForm form textarea {
-  color: black;
-  padding: 10px;
   width: 70%;
-  border-radius: 5px;
-  border: 1px solid #ccc;
 }
 .projectForm form input[type=file] {
   border: none;
@@ -544,13 +505,7 @@ header {
   width: fit-content;
 }
 .projectForm form button {
-  background-color: #15396b;
-  color: white;
-  padding: 10px;
   width: 40%;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
 }
 .projectForm form button:hover {
   background-color: #0f294e;
@@ -674,6 +629,12 @@ header {
       background: linear-gradient(0deg, rgba(255, 236, 63, 0.7607843137) 0%, rgba(60, 255, 109, 0.6941176471) 22%, rgba(87, 93, 255, 0.7803921569) 50%, rgba(255, 54, 255, 0.7607843137) 77%, rgba(255, 44, 44, 0.7647058824) 100%);
     }
   }
+  .initFormConfigMedia, .projectForm, .skillForm, .perfilForm {
+    top: 20%;
+    left: 32%;
+    width: 35%;
+    height: 60%;
+  }
   nav {
     background-color: #15396b;
   }
@@ -691,12 +652,6 @@ header {
   }
   nav .cont_naveg a:hover {
     border-color: rgba(74, 116, 174, 0.831372549);
-  }
-  .perfilForm {
-    top: 20%;
-    left: 32%;
-    width: 35%;
-    height: 60%;
   }
   .perfilForm form {
     width: 90%;
@@ -735,12 +690,6 @@ header {
   .cont_inicio .cont_title h4 {
     font-size: 19px;
     width: 60%;
-  }
-  .skillForm {
-    top: 20%;
-    left: 31%;
-    width: 35%;
-    height: 60%;
   }
   .skillForm form {
     width: 100%;
@@ -791,23 +740,6 @@ header {
   }
   .cont_skills .hard ul li svg {
     margin: 0 10px;
-  }
-  .cont_skills .recen ul {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .cont_skills .recen ul li {
-    width: 203px;
-  }
-  .cont_skills .recen ul li svg {
-    margin: 0 10px;
-  }
-  .projectForm {
-    width: 35%;
-    left: 31.5%;
   }
   .projectForm form {
     width: 90%;
