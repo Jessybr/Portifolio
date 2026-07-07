@@ -2,11 +2,11 @@ import { useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
-interface ProjectsProps {
+interface ProjectListProps {
     setDisplayProjectForm: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-function Projects({ setDisplayProjectForm }: ProjectsProps) {
+function ProjectList({ setDisplayProjectForm }: ProjectListProps) {
     const [verMaisButton, setVerMaisButton] = useState(false)
     const [projAboutVisible, setProjAboutVisible] = useState(false)
 
@@ -106,4 +106,4 @@ function Projects({ setDisplayProjectForm }: ProjectsProps) {
     )
 }
 
-export default Projects
+export default ProjectList
