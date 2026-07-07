@@ -66,6 +66,10 @@ header{
     cursor: pointer;
 }
 
+.faPenToSquareProject{
+    @extend .faPenToSquareSkill;
+}
+
 .perfilForm {
     top: 20%;
     left: 9%;
@@ -568,6 +572,104 @@ header{
     }
 }
 
+.projectForm{
+    top: 20%;
+    left: 9%;
+    flex-direction: column;
+    margin: auto;
+    padding: 20px 20px 30px 20px;
+    width: 72%;
+    height: 50%;
+    background-color: colors-font.$tertiary-color;
+    border-radius: 10px;
+    box-shadow: 10px 10px 0px 0px #00000038;
+    overflow: auto;
+    scrollbar-width: none; 
+    gap: 15px;
+
+    h2 {
+        color: colors-font.$secundary-color;
+        margin-bottom: 20px;
+        align-self: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 90%;
+        margin: auto;
+
+        input, textarea  {
+            color: black;
+            padding: 10px;
+            width: 70%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        input[type=file] {
+            border: none;
+            padding-top: 0;
+        }
+        
+        input::file-selector-button {
+            background-color: colors-font.$secundary-color;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            margin-right: 15px;
+        }
+
+        input::file-selector-button:hover {
+            background-color: #0f294e;
+        }
+
+        .active_button{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            width: 50%;
+            align-self: center;
+            justify-content: center;
+            margin: 0;
+
+            label{
+                width: fit-content;
+                margin: 0;
+            }
+
+            input{
+                width: fit-content;
+            }
+        }
+
+        button {
+            background-color: colors-font.$secundary-color;
+            color: white;
+            padding: 10px;
+            width: 40%;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0f294e;
+        }
+
+        label{
+            margin-top: 10px
+        }
+    }
+}
+
 .cont_conta{
     @extend .cont_header;
 
@@ -721,8 +823,8 @@ header{
     
     .perfilForm {
         top: 20%;
-        left: 34%;
-        width: 30%;
+        left: 32%;
+        width: 35%;
         height: 60%;
 
         form {
@@ -784,8 +886,8 @@ header{
     
     .skillForm {
         top: 20%;
-        left: 28%;
-        width: 40%;
+        left: 31%;
+        width: 35%;
         height: 60%;
 
         form {
@@ -869,6 +971,24 @@ header{
                 }
             }
         }
+    }
+
+    .projectForm{
+        width: 35%;
+        left: 31.5%;
+
+        form{
+            width: 90%;
+
+            input,textarea{
+                width: 100%;
+            }
+
+            button{
+                width: 30%;
+            }
+        }
+
     }
 
     .cont_proj{

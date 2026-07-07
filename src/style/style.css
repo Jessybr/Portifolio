@@ -51,7 +51,7 @@ header {
   cursor: pointer;
 }
 
-.faPenToSquareSkill {
+.faPenToSquareSkill, .faPenToSquareProject {
   position: relative;
   left: 90%;
   top: 0%;
@@ -473,6 +473,92 @@ header {
   margin: 10px;
 }
 
+.projectForm {
+  top: 20%;
+  left: 9%;
+  flex-direction: column;
+  margin: auto;
+  padding: 20px 20px 30px 20px;
+  width: 72%;
+  height: 50%;
+  background-color: #ffe659;
+  border-radius: 10px;
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.2196078431);
+  overflow: auto;
+  scrollbar-width: none;
+  gap: 15px;
+}
+.projectForm h2 {
+  color: #15396b;
+  margin-bottom: 20px;
+  align-self: center;
+}
+.projectForm form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 90%;
+  margin: auto;
+}
+.projectForm form input, .projectForm form textarea {
+  color: black;
+  padding: 10px;
+  width: 70%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.projectForm form input[type=file] {
+  border: none;
+  padding-top: 0;
+}
+.projectForm form input::file-selector-button {
+  background-color: #15396b;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  margin-right: 15px;
+}
+.projectForm form input::file-selector-button:hover {
+  background-color: #0f294e;
+}
+.projectForm form .active_button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 50%;
+  align-self: center;
+  justify-content: center;
+  margin: 0;
+}
+.projectForm form .active_button label {
+  width: fit-content;
+  margin: 0;
+}
+.projectForm form .active_button input {
+  width: fit-content;
+}
+.projectForm form button {
+  background-color: #15396b;
+  color: white;
+  padding: 10px;
+  width: 40%;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+.projectForm form button:hover {
+  background-color: #0f294e;
+}
+.projectForm form label {
+  margin-top: 10px;
+}
+
 .cont_conta ul {
   width: 100%;
   text-align: center;
@@ -608,8 +694,8 @@ header {
   }
   .perfilForm {
     top: 20%;
-    left: 34%;
-    width: 30%;
+    left: 32%;
+    width: 35%;
     height: 60%;
   }
   .perfilForm form {
@@ -652,8 +738,8 @@ header {
   }
   .skillForm {
     top: 20%;
-    left: 28%;
-    width: 40%;
+    left: 31%;
+    width: 35%;
     height: 60%;
   }
   .skillForm form {
@@ -718,6 +804,19 @@ header {
   }
   .cont_skills .recen ul li svg {
     margin: 0 10px;
+  }
+  .projectForm {
+    width: 35%;
+    left: 31.5%;
+  }
+  .projectForm form {
+    width: 90%;
+  }
+  .projectForm form input, .projectForm form textarea {
+    width: 100%;
+  }
+  .projectForm form button {
+    width: 30%;
   }
   .cont_proj .projs {
     width: 75%;
