@@ -7,7 +7,7 @@ function Login({ displayFormLogin, setDisplayFormLogin }: LoginProps) {
     return (
         <>
         <div className={displayFormLogin? "fixed cont_login" : "dispNone cont_login"}>
-            <span className="fechar_login" onClick={() => setDisplayFormLogin(false)}>X</span>
+            <span className="closeSpanBlack" onClick={() => setDisplayFormLogin(false)}>X</span>
             <h2>Login</h2>
             <form action="" method="post">
                 <input type="text" name="email" id="email" placeholder="Email" />

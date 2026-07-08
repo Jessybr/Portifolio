@@ -7,7 +7,7 @@ function ProjectForm({ displayProjectForm, setDisplayProjectForm }: ProjectFormP
     return (
         <>
         <div className={displayProjectForm? "projectForm fixed":"projectForm dispNone"}>
-            <span className="fechar_login" onClick={() => setDisplayProjectForm(false)} >X</span>
+            <span className="closeSpanBlack" onClick={() => setDisplayProjectForm(false)} >X</span>
             <h2>Projetos</h2>
             <form action="">
                 <input list="projeto" id="projetoEscolhido" name="projetoEscolhido" placeholder="Escolha o Projeto"/>

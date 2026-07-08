@@ -8,7 +8,7 @@ function PerfilForm({ displayPerfilForm, setDisplayPerfilForm }: PerfilFormProps
         <>
         <div className={displayPerfilForm? "perfilForm fixed" : "perfilForm dispNone"}>
             <form action="">
-                <span className="fechar_login" onClick={() => setDisplayPerfilForm(false)}>X</span>
+                <span className="closeSpanBlack" onClick={() => setDisplayPerfilForm(false)}>X</span>
                 <h2>Editar Perfil</h2>
                 <input type="text" name="nomeCompleto" id="nomeCompleto" placeholder="Nome Completo"/>
                 <textarea name="descricao" id="descricao" placeholder="Descrição"></textarea>

@@ -9,7 +9,7 @@ function SkillForm({ displaySkillForm, setDisplaySkillForm }: SkillFormProps) {
     return (
         <>
         <div className={displaySkillForm? "skillForm fixed":"skillForm dispNone"}>
-            <span className="fechar_login" onClick={() => setDisplaySkillForm(false)} >X</span>
+            <span className="closeSpanBlack" onClick={() => setDisplaySkillForm(false)} >X</span>
             <div>
                 <h2>Soft Skills</h2>
                 <form>
