@@ -33,7 +33,9 @@ function App() {
         <ProjectForm 
             displayProjectForm={displayProjectForm}
             setDisplayProjectForm={setDisplayProjectForm}/>
-        <Navigation />
+        <Navigation
+            loginIn={loginIn}
+            setLoginIn={setLoginIn}/>
         <Perfil 
             setDisplayFormLogin={setDisplayFormLogin}
             displayPerfilForm={displayPerfilForm}
