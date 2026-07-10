@@ -4,9 +4,10 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 interface SkillListProps {
     setDisplaySkillForm: React.Dispatch<React.SetStateAction<boolean>>
+    loginIn:boolean
 }
 
-function SkillsList({ setDisplaySkillForm }: SkillListProps) {
+function SkillsList({ setDisplaySkillForm, loginIn }: SkillListProps) {
     const [mostrarSoft, setMostrarSoft] = useState(false)
   const [mostrarHard, setMostrarHard] = useState(false)
   const [alturaAuto, setAlturaAuto] = useState(false)
@@ -37,7 +38,7 @@ function SkillsList({ setDisplaySkillForm }: SkillListProps) {
     return (
         <>
         <div className={alturaAuto ? 'cont_skills heiAuto' : 'cont_skills'} id="skills">
-            <FontAwesomeIcon icon={faPenToSquare} className="faPenToSquareSkill" onClick={() => setDisplaySkillForm(true)}/>
+            <FontAwesomeIcon icon={faPenToSquare}  className={loginIn? "faPenToSquareSkill":"faPenToSquareSkill dispNone"} onClick={() => setDisplaySkillForm(true)}/>
             <div className="topic_title">
                 <h3 id="habili">Habilidades</h3>
             </div>

@@ -4,14 +4,15 @@ import Project from './component/project'
 
 interface ProjectListProps {
     setDisplayProjectForm: React.Dispatch<React.SetStateAction<boolean>>
+    loginIn: boolean
 }
 
-function ProjectList({ setDisplayProjectForm }: ProjectListProps) {
+function ProjectList({ setDisplayProjectForm, loginIn }: ProjectListProps) {
 
     return (
         <>
         <div id="proje" className="cont_proj">
-            <FontAwesomeIcon icon={faPenToSquare} className="faPenToSquareProject" onClick={() => setDisplayProjectForm(true)}/>
+            <FontAwesomeIcon icon={faPenToSquare}  className={loginIn? "faPenToSquareProject":"faPenToSquareProject dispNone"} onClick={() => setDisplayProjectForm(true)}/>
                 <h3 className="topic_title">Projetos</h3>
             <div className="projs">
                 <Project />

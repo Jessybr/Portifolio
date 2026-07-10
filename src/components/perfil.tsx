@@ -7,14 +7,15 @@ interface PerfilProps {
     setDisplayFormLogin: React.Dispatch<React.SetStateAction<boolean>>
     displayPerfilForm: boolean
     setDisplayPerfilForm: React.Dispatch<React.SetStateAction<boolean>>
+    loginIn: boolean
 }
 
-function Perfil({ setDisplayFormLogin, setDisplayPerfilForm }: PerfilProps) {
+function Perfil({ setDisplayFormLogin, setDisplayPerfilForm, loginIn }: PerfilProps) {
     return (
         <>
         <header>
             <div className="cont_inicio">
-                <FontAwesomeIcon icon={faPenToSquare} className="faPenToSquare" onClick={() => setDisplayPerfilForm(true)}/>
+                <FontAwesomeIcon icon={faPenToSquare} className={loginIn? "faPenToSquare":"faPenToSquare dispNone"} onClick={() => setDisplayPerfilForm(true)}/>
                 <div className="cont_header">
                     <div className="cont_img">
                         {/* aqui vai vim a imagem pela api */}
