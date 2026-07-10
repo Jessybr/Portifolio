@@ -24,6 +24,10 @@ p, h1, h2, h3, h4{
     display: none !important;
 }
 
+.dispBlock{
+    display: block;
+}
+
 .initFormConfig{
     left: 9%; 
     top: 20%; 
@@ -76,6 +80,22 @@ p, h1, h2, h3, h4{
 
     a{
         scroll-behavior: smooth;
+    }
+
+    button{
+        text-decoration: none;
+        border: 3px solid transparent;
+        display: inline-block;
+        transition: border-color 0.5s;
+        padding: 7px;
+        border-radius: 10px;
+        background-color: colors-font.$secundary-color;
+        font-size: 1rem;
+        font-weight: bold;
+
+        &:hover{
+            border-color: #4a74aed4;
+        }
     }
 }
 
@@ -828,6 +848,10 @@ header{
                 &:hover{
                     border-color: #4a74aed4;
                 }
+            }
+
+            button{
+                font-size: 1.17rem;
             }
         }
     }

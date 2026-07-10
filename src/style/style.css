@@ -19,6 +19,10 @@ p, h1, h2, h3, h4 {
   display: none !important;
 }
 
+.dispBlock {
+  display: block;
+}
+
 .initFormConfig, .projectForm, .skillForm, .perfilForm {
   left: 9%;
   top: 20%;
@@ -67,6 +71,20 @@ p, h1, h2, h3, h4 {
 }
 .cont_naveg a {
   scroll-behavior: smooth;
+}
+.cont_naveg button {
+  text-decoration: none;
+  border: 3px solid transparent;
+  display: inline-block;
+  transition: border-color 0.5s;
+  padding: 7px;
+  border-radius: 10px;
+  background-color: #15396b;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.cont_naveg button:hover {
+  border-color: rgba(74, 116, 174, 0.831372549);
 }
 
 header {
@@ -678,6 +696,9 @@ header {
   }
   nav .cont_naveg a:hover {
     border-color: rgba(74, 116, 174, 0.831372549);
+  }
+  nav .cont_naveg button {
+    font-size: 1.17rem;
   }
   .perfilForm form {
     width: 90%;
