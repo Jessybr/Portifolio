@@ -10,6 +10,7 @@ import Footer from './components/footer.tsx'
 import ProjectForm from './components/forms/projectForm.tsx'
 
 function App() {
+    const [loginIn, setLoginIn] = useState(false)
     const [displayFormLogin, setDisplayFormLogin] = useState(false)
     const [displayPerfilForm, setDisplayPerfilForm] = useState(false)
     const [displaySkillForm, setDisplaySkillForm] = useState(false)
@@ -21,7 +22,8 @@ function App() {
         <div className={translucid? "background_translucid":"dispNone"}></div>
         <Login 
             displayFormLogin={displayFormLogin}
-            setDisplayFormLogin={setDisplayFormLogin}/>
+            setDisplayFormLogin={setDisplayFormLogin}
+            setLoginIn={setLoginIn}/>
         <PerfilForm 
             displayPerfilForm={displayPerfilForm}
             setDisplayPerfilForm={setDisplayPerfilForm}/>
@@ -35,10 +37,13 @@ function App() {
         <Perfil 
             setDisplayFormLogin={setDisplayFormLogin}
             displayPerfilForm={displayPerfilForm}
-            setDisplayPerfilForm={setDisplayPerfilForm}/>
+            setDisplayPerfilForm={setDisplayPerfilForm}
+            loginIn={loginIn}/>
         <Main 
             setDisplaySkillForm={setDisplaySkillForm}
-            setDisplayProjectForm={setDisplayProjectForm}/>
+            setDisplayProjectForm={setDisplayProjectForm}
+            loginIn={loginIn}
+            />
         <Footer />
     </>
   )
