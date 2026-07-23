@@ -1,3 +1,9 @@
+interface ContactData {
+    id: number
+    email: string
+    celular: string
+}
+
 function Contact() {
     return (
         <>

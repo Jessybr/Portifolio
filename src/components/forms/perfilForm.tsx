@@ -1,9 +1,19 @@
 interface PerfilFormProps {
     displayPerfilForm: boolean
     setDisplayPerfilForm: React.Dispatch<React.SetStateAction<boolean>>
+    setPerfil: React.Dispatch<React.SetStateAction<PerfilData | null>>
 }
 
-function PerfilForm({ displayPerfilForm, setDisplayPerfilForm }: PerfilFormProps) {
+interface PerfilData {
+    id: number
+    nomeCompleto: string
+    linkedinUrl: string
+    githubUrl: string
+    curriculoSrc: string
+    fotoSrc: string
+    breveDescricao: string
+}
+
     return (
         <>
         <div className={displayPerfilForm? "perfilForm fixed" : "perfilForm dispNone"}>

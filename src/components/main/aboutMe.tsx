@@ -1,3 +1,7 @@
+interface AboutMeData {
+    id: number
+    sobreMim: string
+}
 function AboutMe() {
     return (
         <>

@@ -7,10 +7,21 @@ interface PerfilProps {
     setDisplayFormLogin: React.Dispatch<React.SetStateAction<boolean>>
     displayPerfilForm: boolean
     setDisplayPerfilForm: React.Dispatch<React.SetStateAction<boolean>>
-    loginIn: boolean
+    loginIn: boolean,
+    perfil: PerfilData | null
+    setPerfil: React.Dispatch<React.SetStateAction<PerfilData | null>>
 }
 
-function Perfil({ setDisplayFormLogin, setDisplayPerfilForm, loginIn }: PerfilProps) {
+interface PerfilData {
+    id: number
+    nomeCompleto: string
+    linkedinUrl: string
+    githubUrl: string
+    curriculoSrc: string
+    fotoSrc: string
+    breveDescricao: string
+}
+
     return (
         <>
         <header>
