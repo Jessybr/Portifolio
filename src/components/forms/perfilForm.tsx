@@ -51,24 +51,27 @@ function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, setPerfil }: Perf
     }, [])
 
     return (
-        <>
-        <div className={displayPerfilForm? "perfilForm fixed" : "perfilForm dispNone"}>
-            <form action="">
-                <span className="closeSpanBlack" onClick={() => setDisplayPerfilForm(false)}>X</span>
-                <h2>Editar Perfil</h2>
-                <input type="text" name="nomeCompleto" id="nomeCompleto" placeholder="Nome Completo"/>
-                <textarea name="descricao" id="descricao" placeholder="Descrição"></textarea>
-                <input type="text" name="githubURL" id="githubURL" placeholder="Github"/>
-                <input type="text" name="linkedinURL" id="linkedinURL" placeholder="Linkedin"/>
-                <input type="text" name="email" id="email" placeholder="Email"/>
-                <input type="text" name="celular" id="celular" placeholder="Celular"/>
-                <label htmlFor="curriculoSRC">Currículo</label>
-                <input type="file" name="curriculoSRC" id="curriculoSRC" placeholder="Currículo"/>
-                <label htmlFor="fotoSRC">Foto</label>
-                <input type="file" name="fotoSRC" id="fotoSRC" placeholder="fotoSRC"/>
-                <button type="submit">Salvar</button>
-            </form>
-        </div>
+            <>
+            <div className={displayPerfilForm? "perfilForm fixed" : "perfilForm dispNone"}>
+                <form onSubmit={handleSubmit}>
+                    <span className="closeSpanBlack" onClick={() => setDisplayPerfilForm(false)}>X</span>
+                    <h2>Editar Perfil</h2>
+                    <input type="text" name="nomeCompleto" id="nomeCompleto" placeholder="Nome Completo" value={formData.nomeCompleto} onChange={handleTextInput}/>
+                    <textarea name="breveDescricao" id="breveDescricao" placeholder="Breve descrição" value={formData.breveDescricao} onChange={handleTextInput}></textarea>
+                    <textarea name="sobreMim" id="sobreMim" placeholder="Sobre mim" value={formData.sobreMim} onChange={handleTextInput}></textarea>
+                    <input type="text" name="githubUrl" id="githubUrl" placeholder="Github" value={formData.githubUrl} onChange={handleTextInput}/>
+                    <input type="text" name="linkedinUrl" id="linkedinUrl" placeholder="Linkedin" value={formData.linkedinUrl} onChange={handleTextInput}/>
+                    <input type="text" name="email" id="email" placeholder="Email" value={formData.email} onChange={handleTextInput}/>
+                    <input type="text" name="celular" id="celular" placeholder="Celular" value={formData.celular} onChange={handleTextInput}/>
+                    <label htmlFor="pdf">Currículo</label>
+                    <input type="file" name="pdf" id="pdf" placeholder="Currículo" onChange={handleFileInput}/>
+                    <label htmlFor="imagem">Foto</label>
+                    <input type="file" name="imagem" id="imagem" placeholder="imagem" onChange={handleFileInput}/>
+                    <button type="submit">Salvar</button>
+                </form>
+            </div>
+            </>
+        )}
         </>
     )
 }
