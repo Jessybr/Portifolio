@@ -32,6 +32,8 @@ interface ProjectData {
 }
 
 function ProjectList({ setDisplayProjectForm, loginIn }: ProjectListProps) {
+    const [projects, setProjects] = useState<ProjectData[]>([])
+    const [loading, setLoading] = useState(true)
 
     return (
         <>
