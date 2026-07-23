@@ -35,6 +35,21 @@ function ProjectList({ setDisplayProjectForm, loginIn }: ProjectListProps) {
     const [projects, setProjects] = useState<ProjectData[]>([])
     const [loading, setLoading] = useState(true)
 
+    useEffect(() => {
+        async function loadProjects() {
+            try {
+                const response = await getProjects()
+                setProjects(response.data.data.projects)
+            } catch(error) {
+                console.error("Erro ao carregar projetos", error)
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        loadProjects()
+    }, [])
+
     return (
         <>
         <div id="proje" className="cont_proj">
