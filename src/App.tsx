@@ -20,7 +20,10 @@ interface PerfilData {
 }
 
 function App() {
-    const [loginIn, setLoginIn] = useState(false)
+    const [loginIn, setLoginIn] = useState<boolean>(() => {
+        const token = localStorage.getItem("token");
+        return !!token; 
+    });
     const [displayFormLogin, setDisplayFormLogin] = useState(false)
     const [displayPerfilForm, setDisplayPerfilForm] = useState(false)
     const [displaySkillForm, setDisplaySkillForm] = useState(false)
@@ -50,7 +53,7 @@ function App() {
             setDisplayFormLogin={setDisplayFormLogin}
             displayPerfilForm={displayPerfilForm}
             setDisplayPerfilForm={setDisplayPerfilForm}
-            loginIn={loginIn}/>
+            loginIn={loginIn}
         <Main 
             setDisplaySkillForm={setDisplaySkillForm}
             setDisplayProjectForm={setDisplayProjectForm}
