@@ -50,6 +50,24 @@ function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, setPerfil }: Perf
         loadPerfil()
     }, [])
 
+
+    const handleTextInput = (evento: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = evento.target;
+        setFormData((dadosAnteriores) => ({
+            ...dadosAnteriores,
+            [name]: value,
+        }));
+    };
+
+    const handleFileInput = (evento: ChangeEvent<HTMLInputElement>) => {
+        const { name, files } = evento.target;
+            if (files && files.length > 0) {
+                setFormData((dadosAnteriores) => ({
+                    ...dadosAnteriores,
+                    [name]: files[0],
+            }));
+        }
+    }
     return (
             <>
             <div className={displayPerfilForm? "perfilForm fixed" : "perfilForm dispNone"}>
