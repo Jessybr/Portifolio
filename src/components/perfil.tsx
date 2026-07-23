@@ -1,7 +1,9 @@
 import FotoEu from '../assets/images/eu.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
-//import api from "../api/api";
+import { faGithub, faSquareLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { getPerfil } from '../api/perfilApi';
+import { useEffect, useState } from 'react';
 
 interface PerfilProps {
     setDisplayFormLogin: React.Dispatch<React.SetStateAction<boolean>>
@@ -24,6 +26,21 @@ interface PerfilData {
 
 function Perfil({ setDisplayFormLogin, setDisplayPerfilForm, loginIn, perfil, setPerfil }: PerfilProps) {
     const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        async function loadPerfil() {
+            try {
+                const response = await getPerfil()
+                setPerfil(response.data.data.perfil)
+            } catch(error) {
+                console.error("Erro ao carregar projetos", error)
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        loadPerfil()
+    }, [])
 
 
     return (

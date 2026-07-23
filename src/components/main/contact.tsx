@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react"
+import { getPerfil } from "../../api/perfilApi"
+
 interface ContactData {
     id: number
     email: string
@@ -8,6 +11,21 @@ function Contact() {
     const [contact, setContact] = useState<ContactData | null>(null)
     const [loading, setLoading] = useState(false)
 
+    useEffect(() => {
+        async function loadPerfil() {
+            setLoading(true)
+            try {
+                const response = await getPerfil()
+                setContact(response.data.data.perfil)
+            } catch(error) {
+                console.error("Erro ao carregar projetos", error)
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        loadPerfil()
+    }, [])
     return (
         <>
         <div id="contat" className="cont_conta">

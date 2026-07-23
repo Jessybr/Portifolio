@@ -1,3 +1,9 @@
+import axios from "axios"
+import { patchPerfil } from "../../api/admin/perfilAdminApi"
+import { useEffect, useState, type ChangeEvent } from "react"
+import { Bounce, toast, ToastContainer } from "react-toastify"
+import { getPerfil } from "../../api/perfilApi"
+
 interface PerfilFormProps {
     displayPerfilForm: boolean
     setDisplayPerfilForm: React.Dispatch<React.SetStateAction<boolean>>
@@ -28,6 +34,21 @@ function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, setPerfil }: Perf
     });
     const [statusMessage, setStatusMessage] = useState("")
     const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        async function loadPerfil() {
+            try {
+                const response = await getPerfil()
+                setFormData(response.data.data.perfil)
+            } catch(error) {
+                console.error("Erro ao carregar projetos", error)
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        loadPerfil()
+    }, [])
 
     return (
         <>
