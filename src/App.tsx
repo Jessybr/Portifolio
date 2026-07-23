@@ -9,6 +9,16 @@ import SkillForm from './components/forms/skillForm.tsx'
 import Footer from './components/footer.tsx'
 import ProjectForm from './components/forms/projectForm.tsx'
 
+interface PerfilData {
+    id: number
+    nomeCompleto: string
+    linkedinUrl: string
+    githubUrl: string
+    curriculoSrc: string
+    fotoSrc: string
+    breveDescricao: string
+}
+
 function App() {
     const [loginIn, setLoginIn] = useState(false)
     const [displayFormLogin, setDisplayFormLogin] = useState(false)
