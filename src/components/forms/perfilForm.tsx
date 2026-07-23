@@ -14,6 +14,21 @@ interface PerfilData {
     breveDescricao: string
 }
 
+function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, setPerfil }: PerfilFormProps) {
+    const [formData, setFormData] = useState({
+        nomeCompleto: '',
+        email: '',
+        celular: '',
+        linkedinUrl: '',
+        githubUrl: '',
+        pdf: null,
+        imagem: null,
+        breveDescricao: '',
+        sobreMim: '',
+    });
+    const [statusMessage, setStatusMessage] = useState("")
+    const [loading, setLoading] = useState(true)
+
     return (
         <>
         <div className={displayPerfilForm? "perfilForm fixed" : "perfilForm dispNone"}>

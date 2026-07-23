@@ -22,6 +22,10 @@ interface PerfilData {
     breveDescricao: string
 }
 
+function Perfil({ setDisplayFormLogin, setDisplayPerfilForm, loginIn, perfil, setPerfil }: PerfilProps) {
+    const [loading, setLoading] = useState(true)
+
+
     return (
         <>
         <header>

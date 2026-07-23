@@ -5,6 +5,9 @@ interface ContactData {
 }
 
 function Contact() {
+    const [contact, setContact] = useState<ContactData | null>(null)
+    const [loading, setLoading] = useState(false)
+
     return (
         <>
         <div id="contat" className="cont_conta">

@@ -2,7 +2,11 @@ interface AboutMeData {
     id: number
     sobreMim: string
 }
+
 function AboutMe() {
+    const [aboutMe, setAboutme] = useState<AboutMeData | null>(null)
+    const [loading, setLoading] = useState(false)
+
     return (
         <>
         <div id="sobre" className="cont_about">
