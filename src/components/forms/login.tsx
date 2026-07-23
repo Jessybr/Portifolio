@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { login } from "../../api/authApi"
+import axios from "axios";
+import { Bounce, toast, ToastContainer } from "react-toastify";
 
 interface LoginProps {
     displayFormLogin: boolean
@@ -10,6 +12,27 @@ interface LoginProps {
 function Login({ displayFormLogin, setDisplayFormLogin, setLoginIn }: LoginProps) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+
+    const [errorMessage, setErrorMessage] = useState("")
+    
+        const popUpError = () => {
+    
+            if(errorMessage == "Erro 401"){
+                toast.error("Credenciais inválidas, tente novamente.", 
+                    {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                })
+            }
+            
+        }
 
     async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
         event.preventDefault()
@@ -26,13 +49,31 @@ function Login({ displayFormLogin, setDisplayFormLogin, setLoginIn }: LoginProps
             )
 
             setLoginIn(true)
+            setDisplayFormLogin(false)
         } catch (error) {
-            console.error("Erro ao fazer login", error)
+            if (axios.isAxiosError(error)) {
+                const msg = `Erro ${error.response?.status}`
+                setErrorMessage(msg)
+                popUpError()
+            }
         }
     }
 
     return (
         <>
+        <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            transition={Bounce}
+            />
         <div className={displayFormLogin? "fixed cont_login" : "dispNone cont_login"}>
             <span className="closeSpanBlack" onClick={() => setDisplayFormLogin(false)}>X</span>
             <h2>Login</h2>
