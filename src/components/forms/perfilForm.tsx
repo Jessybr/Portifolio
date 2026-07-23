@@ -68,6 +68,36 @@ function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, setPerfil }: Perf
             }));
         }
     }
+
+    async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
+        event.preventDefault()
+
+        const data = new FormData()
+        data.append('nomeCompleto', formData.nomeCompleto)
+        data.append('email', formData.email)
+        data.append('celular', formData.celular)
+        data.append('linkedinUrl', formData.linkedinUrl)
+        data.append('githubUrl', formData.githubUrl)
+        data.append('breveDescricao', formData.breveDescricao)
+        data.append('sobreMim', formData.sobreMim)
+
+        if (formData.pdf) {
+            data.append('pdf', formData.pdf);
+        }
+        if (formData.imagem) {
+            data.append('imagem', formData.imagem);
+        }
+
+        try {
+            const response = await patchPerfil(data)
+            setPerfil(response.data.perfil)
+            status200()
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                status500()
+            }
+        }
+    }
     return (
             <>
             <div className={displayPerfilForm? "perfilForm fixed" : "perfilForm dispNone"}>
