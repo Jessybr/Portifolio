@@ -20,6 +20,9 @@ interface SoftSkillData {
 }
 
 function SkillsList({ setDisplaySkillForm, loginIn }: SkillListProps) {
+    const [softSkill, setSoftSkill] = useState<SoftSkillData[]>([])
+    const [technology, setTechnology] = useState<TechnologyData[]>([])
+    const [loading, setLoading] = useState(true)
     const [mostrarSoft, setMostrarSoft] = useState(false)
   const [mostrarHard, setMostrarHard] = useState(false)
   const [alturaAuto, setAlturaAuto] = useState(false)
