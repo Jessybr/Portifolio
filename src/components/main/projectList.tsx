@@ -7,6 +7,30 @@ interface ProjectListProps {
     loginIn: boolean
 }
 
+interface ProjectData {
+    id: number
+    nome: string
+    descricao: string
+    ativo: boolean
+    videoSrc: string
+    videoPublicId: string
+    imagemSrc: string
+    imagemPublicId: string
+    deployUrl: string
+    githubUrl: string
+    tecnologias: [
+        {
+            tecnologia_id: number
+            projeto_id: number
+            tecnologia: {
+                id: number
+                nome: string
+                iconeSrc: string
+            }
+        }
+    ],
+}
+
 function ProjectList({ setDisplayProjectForm, loginIn }: ProjectListProps) {
 
     return (
