@@ -48,6 +48,24 @@ function SkillsList({ setDisplaySkillForm, loginIn }: SkillListProps) {
         return () => {
             window.removeEventListener('scroll', handleScroll)
         }
+        }, [])
+    
+    useEffect(() => {
+        async function loadSkills() {
+            try {
+                const responseSoftSkill = await getSoftSkill()
+                setSoftSkill(responseSoftSkill.data.softSkills)
+
+                const responseTechnology = await getTechnology()
+                setTechnology(responseTechnology.data.technologies)
+            } catch(error) {
+                console.error("Erro ao carregar projetos", error)
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        loadSkills()
     }, [])
 
     return (
