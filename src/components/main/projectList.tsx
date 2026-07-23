@@ -1,6 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import Project from './component/project'
+import { getProjects } from '../../api/projetosApi'
+import { useEffect, useState } from 'react'
 
 interface ProjectListProps {
     setDisplayProjectForm: React.Dispatch<React.SetStateAction<boolean>>
@@ -56,7 +58,13 @@ function ProjectList({ setDisplayProjectForm, loginIn }: ProjectListProps) {
             <FontAwesomeIcon icon={faPenToSquare}  className={loginIn? "faPenToSquareProject":"faPenToSquareProject dispNone"} onClick={() => setDisplayProjectForm(true)}/>
                 <h3 className="topic_title">Projetos</h3>
             <div className="projs">
-                <Project />
+                {loading ? (
+                    <p>Carregando projetos...</p> 
+                    ) : (
+                    projects.map(project => (
+                        <Project key={project.id} project={project} />
+                    ))
+                )}
             </div>
         </div>
         </>
