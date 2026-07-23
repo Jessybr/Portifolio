@@ -7,6 +7,18 @@ interface SkillListProps {
     loginIn:boolean
 }
 
+interface TechnologyData {
+    id: number
+    nome: string
+    iconeSrc: string
+}
+
+interface SoftSkillData {
+    id: number
+    nome: string
+    iconeSrc: string
+}
+
 function SkillsList({ setDisplaySkillForm, loginIn }: SkillListProps) {
     const [mostrarSoft, setMostrarSoft] = useState(false)
   const [mostrarHard, setMostrarHard] = useState(false)
