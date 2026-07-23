@@ -50,6 +50,36 @@ function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, setPerfil }: Perf
         loadPerfil()
     }, [])
 
+        
+    const status500 = () => {
+        toast.error("Erro, tente novamente.", 
+            {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+        })
+    }
+
+    const status200 = () => {
+        toast.success("Informações editadas com sucesso!", 
+            {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+        })
+    }
 
     const handleTextInput = (evento: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = evento.target;
@@ -99,6 +129,21 @@ function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, setPerfil }: Perf
         }
     }
     return (
+        <>
+        <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            transition={Bounce}
+            />
+        {loading? (<p>Aguardando informações...</p>) : (
             <>
             <div className={displayPerfilForm? "perfilForm fixed" : "perfilForm dispNone"}>
                 <form onSubmit={handleSubmit}>
