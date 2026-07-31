@@ -63,6 +63,29 @@ function SkillForm({ displaySkillForm, setDisplaySkillForm }: SkillFormProps) {
             [name]: value,
         }))
     }
+
+    async function handleSubmitSoftSkill(event: React.SubmitEvent<HTMLFormElement>) {
+        event.preventDefault()
+        try {
+            const result = await postSoftSkill(dataSkill)
+            loadSkills()
+            console.error(result)
+        } catch(error) {
+            console.error("Erro", error)
+        }
+    }
+
+    async function handleSubmitTech(event: React.SubmitEvent<HTMLFormElement>) {
+        event.preventDefault()
+        try {
+            const result = await postTechnology(dataTech)
+            loadSkills()
+            console.error(result)
+        } catch(error) {
+            console.error("Erro", error)
+        }
+    }
+
     return (
         <>
         <div className={displaySkillForm? "skillForm fixed":"skillForm dispNone"}>

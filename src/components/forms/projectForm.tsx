@@ -127,6 +127,46 @@ function ProjectForm({ displayProjectForm, setDisplayProjectForm }: ProjectFormP
         }
     }
 
+    async function handleSubmitFormToPatchOrPostProject(event: React.SubmitEvent<HTMLFormElement>) {
+        event.preventDefault()
+
+        const data = new FormData()
+        data.append('nome', formData.nome)
+        data.append('descricao', formData.descricao)
+        data.append('deployUrl', formData.deployUrl)
+        data.append('githubUrl', formData.githubUrl)
+        if (formData.ativo) {
+            data.append('ativo', formData.ativo)
+        }
+        //data.append('tecnologias', JSON.stringify(formData.tecnologias))
+
+        if (formData.videoSrc) {
+            data.append('video', formData.videoSrc)
+        }
+        if (formData.imagemSrc) {
+            data.append('imagem', formData.imagemSrc)
+        }
+
+        console.log("formdata img: ",data.get('imagem'))
+        console.log("formdata video: ",data.get('video'))
+
+        try {
+            if(selectedProject) {
+                const response = await patchProjectById(projectId, data)
+            console.log(response)
+            } else {
+                const response = await postProject(data)
+            console.log(response)
+            }
+            loadProjects()
+        } catch (error) {
+            console.log(error)
+            // if (axios.isAxiosError(error)) {
+            //     status500()
+            // }
+        }
+    }
+
     return (
         <>
         <div className={displayProjectForm? "projectForm fixed":"projectForm dispNone"}>
