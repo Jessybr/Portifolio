@@ -5,6 +5,18 @@ interface SkillFormProps {
     setDisplaySkillForm: React.Dispatch<React.SetStateAction<boolean>>
 }
 
+interface TechnologyData {
+    id: number
+    nome: string
+    iconeSrc: string
+}
+
+interface SoftSkillData {
+    id: number
+    nome: string
+    iconeSrc: string
+}
+
 function SkillForm({ displaySkillForm, setDisplaySkillForm }: SkillFormProps) {
     return (
         <>
