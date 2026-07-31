@@ -51,6 +51,58 @@ function ProjectForm({ displayProjectForm, setDisplayProjectForm }: ProjectFormP
         githubUrl: '',
         tecnologias: []
     })
+    const handleFileInputValue = (evento: ChangeEvent<HTMLInputElement>) => {
+        const { name, files } = evento.target;
+        console.log(files)
+            if (files && files.length > 0) {
+                setFormData((dadosAnteriores) => ({
+                    ...dadosAnteriores,
+                    [name]: files[0],
+            }))
+
+            
+            console.log(formData.imagemSrc)
+        }
+    }
+    
+    const handleRadioInput = (evento: ChangeEvent<HTMLInputElement>) => {
+        setFormData((dadosAnteriores) => ({
+            ...dadosAnteriores,
+            ativo: evento?.target.value,
+        }))
+    }
+
+    const handleOptionInput = async (evento: ChangeEvent<HTMLInputElement>) => {
+        const projectName = evento.target.value
+        setSelectedProject(projectName);
+
+        const projetoEncontrado = projects.find(
+            (project) => project.nome.toLowerCase() === projectName.toLowerCase()
+        );
+
+        if (!projetoEncontrado) {
+            return
+        }
+
+        try {
+            const project = await getProjectById(projetoEncontrado.id)
+            setProjectId(project.id)
+
+            setFormData({
+                nome: project?.nome ?? '',
+                descricao: project?.descricao ?? '',
+                ativo: project?.ativo !== undefined ? String(project.ativo) : '',
+                videoSrc: null,
+                imagemSrc: null,
+                deployUrl: project?.deployUrl ?? '',
+                githubUrl: project?.githubUrl ?? '',
+                tecnologias: project?.tecnologias ?? []
+            })
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
     return (
         <>
         <div className={displayProjectForm? "projectForm fixed":"projectForm dispNone"}>

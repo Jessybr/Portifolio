@@ -29,6 +29,21 @@ function SkillForm({ displaySkillForm, setDisplaySkillForm }: SkillFormProps) {
         iconeSrc: ''
     })
     const [loading, setLoading] = useState(true)
+    const handleTextInputDataSkill = (evento: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = evento.target;
+        setDataSkill((dadosAnteriores) => ({
+            ...dadosAnteriores,
+            [name]: value,
+        }))
+    }
+
+    const handleTextInputDataTech = (evento: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = evento.target;
+        setDataTech((dadosAnteriores) => ({
+            ...dadosAnteriores,
+            [name]: value,
+        }))
+    }
     return (
         <>
         <div className={displaySkillForm? "skillForm fixed":"skillForm dispNone"}>
