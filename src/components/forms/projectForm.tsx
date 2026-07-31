@@ -51,6 +51,30 @@ function ProjectForm({ displayProjectForm, setDisplayProjectForm }: ProjectFormP
         githubUrl: '',
         tecnologias: []
     })
+
+    async function loadProjects() {
+        try {
+            const response = await getAllProjects()
+            setProjects(response.data.data)
+        } catch(error) {
+            console.error("Erro ao carregar projetos", error)
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    useEffect(() => {
+            loadProjects()
+    }, [])
+
+    const handleTextInputValue = (evento: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = evento.target;
+        setFormData((dadosAnteriores) => ({
+            ...dadosAnteriores,
+            [name]: value,
+        }))
+    }
+
     const handleFileInputValue = (evento: ChangeEvent<HTMLInputElement>) => {
         const { name, files } = evento.target;
         console.log(files)
