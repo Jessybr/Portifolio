@@ -1,3 +1,7 @@
+import { useEffect, useState, type ChangeEvent } from "react"
+import { getProjectById } from "../../api/projetosApi"
+import { getAllProjects, patchProjectById, postProject } from "../../api/admin/projectAdminApi"
+
 interface ProjectFormProps {
     displayProjectForm: boolean
     setDisplayProjectForm: React.Dispatch<React.SetStateAction<boolean>>
@@ -172,32 +176,35 @@ function ProjectForm({ displayProjectForm, setDisplayProjectForm }: ProjectFormP
         <div className={displayProjectForm? "projectForm fixed":"projectForm dispNone"}>
             <span className="closeSpanBlack" onClick={() => setDisplayProjectForm(false)} >X</span>
             <h2>Projetos</h2>
-            <form action="">
-                <input list="projeto" id="projetoEscolhido" name="projetoEscolhido" placeholder="Escolha o Projeto"/>
-                <datalist id="projeto">
-                    <option value="Novo Projeto"/>
-                    <option value="Amor na Casquinha"/>
-                    <option value="Spotfy"/>
-                    <option value="API - Porfólio"/>
-                    <option value="Biblioteca"/>
+            <form onSubmit={handleSubmitFormToPatchOrPostProject}>
+                <input type="hidden" name="id" value={projectId} />
+                <input type="text" list="project-list" id="projetoChoiced" name="projetoChoiced" value={selectedProject} placeholder="Escreva ou escolha um projeto..." onChange={handleOptionInput} disabled={loading}/>
+                <datalist id="project-list">
+                {projects.map((project) => (
+                    <option 
+                    key={project.id} 
+                    value={project.nome} 
+                    label={`Id do Projeto: ${project.id}`} 
+                    />
+                ))}
                 </datalist>
-                <input type="text" name="nome" id="nome" placeholder="Nome"/>
-                <textarea name="descricao" id="descricao" placeholder="Descrição"></textarea>
-                <input type="text" name="githubURL" id="githubURL" placeholder="Repositório"/>
-                <input type="text" name="deployURL" id="deployURL" placeholder="Site"/>
+                <input type="text" name="nome" id="nome" placeholder="Nome" value={formData.nome} onChange={handleTextInputValue}/>
+                <textarea name="descricao" id="descricao" placeholder="Descrição" value={formData.descricao} onChange={handleTextInputValue}></textarea>
+                <input type="text" name="githubUrl" id="githubUrl" placeholder="Repositório" value={formData.githubUrl} onChange={handleTextInputValue}/>
+                <input type="text" name="deployUrl" id="deployUrl" placeholder="Site" value={formData.deployUrl} onChange={handleTextInputValue}/>
                 <div className="active_button">
                     <label htmlFor="ativo">
                         Ativo
                     </label>
-                        <input type="radio" name="ativo" value="ativo"/> 
+                        <input type="radio" name="ativo" value="false" onChange={handleRadioInput}/> 
                     <label htmlFor="ativo">Desativado
                     </label>
-                        <input type="radio" name="ativo" value="desativado"/> 
+                        <input type="radio" name="ativo" value="true" onChange={handleRadioInput}/> 
                 </div>
                 <label htmlFor="imagem">Imagem</label>
-                <input type="file" name="imagem" id="imagem"/>
+                <input type="file" name="imagemSrc" id="imagemSrc" onChange={handleFileInputValue}/>
                 <label htmlFor="video">Vídeo</label>
-                <input type="file" name="video" id="video"/>
+                <input type="file" name="videoSrc" id="videoSrc" onChange={handleFileInputValue}/>
                 <button type="submit">Salvar</button>
             </form>
         </div>

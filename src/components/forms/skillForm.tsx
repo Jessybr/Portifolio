@@ -1,4 +1,9 @@
+import { useEffect, useState, type ChangeEvent } from "react"
 import SkillSpan from "../main/component/skillSpan"
+import { getSoftSkill } from "../../api/softSkillApi"
+import { getTechnology } from "../../api/technologyApi"
+import { postSoftSkill } from "../../api/admin/softSkillAdminApi"
+import { postTechnology } from "../../api/admin/technologyAdminApi"
 
 interface SkillFormProps {
     displaySkillForm: boolean
@@ -92,24 +97,48 @@ function SkillForm({ displaySkillForm, setDisplaySkillForm }: SkillFormProps) {
             <span className="closeSpanBlack" onClick={() => setDisplaySkillForm(false)} >X</span>
             <div>
                 <h2>Soft Skills</h2>
-                <form>
-                    <input type="text" />
+                <form onSubmit={handleSubmitSoftSkill}>
+                    <input type="text" placeholder="Skill" name="nome" value={dataSkill.nome} onChange={handleTextInputDataSkill}/>
+                    <input type="text" placeholder="Ícone" name="iconeSrc" value={dataSkill.iconeSrc} onChange={handleTextInputDataSkill}/>
                     <button type="submit">Adicionar</button>
                 </form>
                 <div className="skill_cont">
-                    <SkillSpan 
-                    skillName="Comunicação"/>
+                    {loading ?
+                    (<p>Carregando projetos...</p>) : 
+                    (softSkill.map(skill => 
+                            (
+                                <SkillSpan 
+                                id={skill.id}
+                                skillName={skill.nome}
+                                iconSrc={skill.iconeSrc}
+                                loadSkills={loadSkills}
+                                type="softSkill"/>
+                            )
+                        )
+                    )}
                 </div>
             </div>
             <div>
                 <h2>Hard Skills</h2>
-                <form>
-                    <input type="text" />
+                <form onSubmit={handleSubmitTech}>
+                    <input type="text" placeholder="Tecnologia" name="nome" value={dataTech.nome} onChange={handleTextInputDataTech}/>
+                    <input type="text" placeholder="Ícone" name="iconeSrc" value={dataTech.iconeSrc} onChange={handleTextInputDataTech}/>
                     <button type="submit">Adicionar</button>
                 </form>
                 <div className="skill_cont">
-                    <SkillSpan 
-                    skillName="Java"/>
+                    {loading ?
+                    (<p>Carregando projetos...</p>) : 
+                    (technology.map(skill => 
+                            (
+                                <SkillSpan 
+                                id={skill.id}
+                                skillName={skill.nome}
+                                iconSrc={skill.iconeSrc}
+                                loadSkills={loadSkills}
+                                type="technology"/>
+                            )
+                        )
+                    )}
                 </div>
             </div>
         </div>
