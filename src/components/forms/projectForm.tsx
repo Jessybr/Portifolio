@@ -37,6 +37,20 @@ interface ProjectFormData {
 }
 
 function ProjectForm({ displayProjectForm, setDisplayProjectForm }: ProjectFormProps) {
+    const [projects, setProjects] = useState<ProjectData[]>([])
+    const [projectId, setProjectId] = useState(0)
+    const [loading, setLoading] = useState(true)
+    const [selectedProject, setSelectedProject] = useState<string>('');
+    const [formData, setFormData] = useState<ProjectFormData>({
+        nome: '',
+        descricao: '',
+        ativo: '',
+        videoSrc: null,
+        imagemSrc: null,
+        deployUrl: '',
+        githubUrl: '',
+        tecnologias: []
+    })
     return (
         <>
         <div className={displayProjectForm? "projectForm fixed":"projectForm dispNone"}>

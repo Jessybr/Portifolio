@@ -18,6 +18,17 @@ interface SoftSkillData {
 }
 
 function SkillForm({ displaySkillForm, setDisplaySkillForm }: SkillFormProps) {
+    const [softSkill, setSoftSkill] = useState<SoftSkillData[]>([])
+    const [technology, setTechnology] = useState<TechnologyData[]>([])
+    const [dataSkill, setDataSkill] = useState({
+        nome: '',
+        iconeSrc: ''
+    })
+    const [dataTech, setDataTech] = useState({
+        nome: '',
+        iconeSrc: ''
+    })
+    const [loading, setLoading] = useState(true)
     return (
         <>
         <div className={displaySkillForm? "skillForm fixed":"skillForm dispNone"}>
