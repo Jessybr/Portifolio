@@ -29,6 +29,25 @@ function SkillForm({ displaySkillForm, setDisplaySkillForm }: SkillFormProps) {
         iconeSrc: ''
     })
     const [loading, setLoading] = useState(true)
+
+    async function loadSkills() {
+        try {
+            const responseSoftSkill = await getSoftSkill()
+            setSoftSkill(responseSoftSkill.data.softSkills)
+
+            const responseTechnology = await getTechnology()
+            setTechnology(responseTechnology.data.technologies)
+        } catch(error) {
+            console.error("Erro ao carregar projetos", error)
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        loadSkills()
+    }, [])
+
     const handleTextInputDataSkill = (evento: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = evento.target;
         setDataSkill((dadosAnteriores) => ({
