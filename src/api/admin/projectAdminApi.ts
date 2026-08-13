@@ -19,3 +19,8 @@ export async function updateProjectStatusById(id: number) {
     const response = await api.patch(`/project/active/${id}`)
     return response.data
 }
+
+export async function deleteProjectById(id: number) {
+    const response = await api.delete(`/project/${id}`)
+    return response.data
+}
