@@ -2,7 +2,6 @@ import api from "../api";
 
 interface SoftSkillRequest {
     nome: string
-    iconeSrc: string
 }
 
 export async function postSoftSkill(
