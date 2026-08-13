@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 interface ProjectProps {
     project: {
@@ -50,7 +50,9 @@ function Project({ project }: ProjectProps) {
                     </div>
                     <div className="icon_proj">
                         {project.tecnologias && project.tecnologias?.map((tecnologia) => (
-                            <p key={tecnologia.tecnologia_id}>{tecnologia.tecnologia.iconeSrc}</p>
+                            <>
+                                <p key={tecnologia.tecnologia_id}>{tecnologia.tecnologia.nome}</p>
+                            </>
                         ))}
                     </div>
                     <div>
