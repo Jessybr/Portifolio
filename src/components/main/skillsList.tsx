@@ -84,7 +84,9 @@ function SkillsList({ setDisplaySkillForm, loginIn }: SkillListProps) {
                     (<p>Carregando projetos...</p>) : 
                     (softSkill.map(skill => 
                             (
-                                <li>{skill.iconeSrc}{skill.nome}</li>
+                                <li>
+                                    {skill.nome}
+                                </li>
                             )
                         )
                     )}
@@ -97,7 +99,9 @@ function SkillsList({ setDisplaySkillForm, loginIn }: SkillListProps) {
                     (<p>Carregando projetos...</p>) :
                     (softSkill && technology.map(skill => 
                             (
-                                <li>{skill.iconeSrc}{skill.nome}</li>
+                                <li>
+                                    {skill.nome}
+                                </li>
                             )
                         )
                     )}
