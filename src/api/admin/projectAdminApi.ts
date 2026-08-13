@@ -14,3 +14,8 @@ export async function getAllProjects() {
     const response = await api.get("/project")
     return response
 }
+
+export async function updateProjectStatusById(id: number) {
+    const response = await api.patch(`/project/active/${id}`)
+    return response.data
+}
