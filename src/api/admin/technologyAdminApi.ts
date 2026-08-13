@@ -2,7 +2,6 @@ import api from "../api";
 
 interface TechnologyRequest {
     nome: string
-    iconeSrc: string
 }
 
 export async function postTechnology(
