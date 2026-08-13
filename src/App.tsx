@@ -7,7 +7,6 @@ import { useState } from 'react'
 import PerfilForm from './components/forms/perfilForm.tsx'
 import SkillForm from './components/forms/skillForm.tsx'
 import Footer from './components/footer.tsx'
-import ProjectForm from './components/forms/projectForm.tsx'
 
 interface PerfilData {
     id: number
@@ -45,9 +44,6 @@ function App() {
         <SkillForm 
             displaySkillForm={displaySkillForm}
             setDisplaySkillForm={setDisplaySkillForm}/>
-        <ProjectForm 
-            displayProjectForm={displayProjectForm}
-            setDisplayProjectForm={setDisplayProjectForm}/>
         <Navigation
             loginIn={loginIn}
             setLoginIn={setLoginIn}/>
@@ -62,6 +58,7 @@ function App() {
             setDisplaySkillForm={setDisplaySkillForm}
             setDisplayProjectForm={setDisplayProjectForm}
             loginIn={loginIn}
+            displayProjectForm={displayProjectForm}
             />
         <Footer />
     </>

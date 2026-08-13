@@ -3,8 +3,10 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import Project from './component/project'
 import { getProjects } from '../../api/projetosApi'
 import { useEffect, useState } from 'react'
+import ProjectForm from '../forms/projectForm'
 
 interface ProjectListProps {
+    displayProjectForm: boolean
     setDisplayProjectForm: React.Dispatch<React.SetStateAction<boolean>>
     loginIn: boolean
 }
@@ -33,7 +35,7 @@ interface ProjectData {
     ],
 }
 
-function ProjectList({ setDisplayProjectForm, loginIn }: ProjectListProps) {
+function ProjectList({ setDisplayProjectForm, loginIn, displayProjectForm }: ProjectListProps) {
     const [projects, setProjects] = useState<ProjectData[]>([])
     const [loading, setLoading] = useState(true)
 
@@ -54,6 +56,12 @@ function ProjectList({ setDisplayProjectForm, loginIn }: ProjectListProps) {
 
     return (
         <>
+        
+        <ProjectForm 
+            displayProjectForm={displayProjectForm}
+            setDisplayProjectForm={setDisplayProjectForm}
+            loadActiveProjects={loadProjects}
+        />
         <div id="proje" className="cont_proj">
             <FontAwesomeIcon icon={faPenToSquare}  className={loginIn? "faPenToSquareProject":"faPenToSquareProject dispNone"} onClick={() => setDisplayProjectForm(true)}/>
                 <h3 className="topic_title">Projetos</h3>
