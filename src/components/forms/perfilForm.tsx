@@ -32,7 +32,6 @@ function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, setPerfil }: Perf
         breveDescricao: '',
         sobreMim: '',
     });
-    const [statusMessage, setStatusMessage] = useState("")
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
