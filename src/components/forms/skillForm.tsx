@@ -26,12 +26,10 @@ function SkillForm({ displaySkillForm, setDisplaySkillForm }: SkillFormProps) {
     const [softSkill, setSoftSkill] = useState<SoftSkillData[]>([])
     const [technology, setTechnology] = useState<TechnologyData[]>([])
     const [dataSkill, setDataSkill] = useState({
-        nome: '',
-        iconeSrc: ''
+        nome: ''
     })
     const [dataTech, setDataTech] = useState({
-        nome: '',
-        iconeSrc: ''
+        nome: ''
     })
     const [loading, setLoading] = useState(true)
 
@@ -99,7 +97,6 @@ function SkillForm({ displaySkillForm, setDisplaySkillForm }: SkillFormProps) {
                 <h2>Soft Skills</h2>
                 <form onSubmit={handleSubmitSoftSkill}>
                     <input type="text" placeholder="Skill" name="nome" value={dataSkill.nome} onChange={handleTextInputDataSkill}/>
-                    <input type="text" placeholder="Ícone" name="iconeSrc" value={dataSkill.iconeSrc} onChange={handleTextInputDataSkill}/>
                     <button type="submit">Adicionar</button>
                 </form>
                 <div className="skill_cont">
@@ -122,7 +119,6 @@ function SkillForm({ displaySkillForm, setDisplaySkillForm }: SkillFormProps) {
                 <h2>Hard Skills</h2>
                 <form onSubmit={handleSubmitTech}>
                     <input type="text" placeholder="Tecnologia" name="nome" value={dataTech.nome} onChange={handleTextInputDataTech}/>
-                    <input type="text" placeholder="Ícone" name="iconeSrc" value={dataTech.iconeSrc} onChange={handleTextInputDataTech}/>
                     <button type="submit">Adicionar</button>
                 </form>
                 <div className="skill_cont">
