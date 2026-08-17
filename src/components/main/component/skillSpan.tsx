@@ -1,26 +1,27 @@
-import { deleteSoftSkill } from "../../../api/admin/softSkillAdminApi"
-import { deleteTechnology } from "../../../api/admin/technologyAdminApi"
+import axios from "axios"
+import { handleApiError, showSuccessToast } from "../../../utils/toast"
 
 interface SkillSpanProps {
     id: number
     skillName: string
-    iconSrc: string
-    loadSkills: () => void
+    deleteSkill: (type: string, id: number) => Promise<void>
     type: string
+    loadSkillList: () => Promise<void>
 }
 
-function SkillSpan({ id, skillName, iconSrc, loadSkills, type }: SkillSpanProps) {
-    const deleteSkill = async () => {
+function SkillSpan({ id, skillName, deleteSkill, type, loadSkillList }: SkillSpanProps) {
+    const handleDeleteSkill = async () => {
         try{
             if(type==="softSkill") {
-                const result = await deleteSoftSkill(id)
+                await deleteSkill(type,id)
                 showSuccessToast("Soft Skill deletada com sucesso!")
             } else {
                 if(type==="technology") {
-                    const result = await deleteTechnology(id)
+                    await deleteSkill(type,id)
                     showSuccessToast("Tecnologia deletada com sucesso!")
                 }
             }
+            loadSkillList()
         } catch(error) {
             if (axios.isAxiosError(error)) {
                 handleApiError(error.status)
@@ -31,7 +32,7 @@ function SkillSpan({ id, skillName, iconSrc, loadSkills, type }: SkillSpanProps)
     return (
         <div className="skillSpan">
             <p>{skillName}</p>
-            <span onClick={deleteSkill}>X</span>
+            <span onClick={handleDeleteSkill}>X</span>
         </div>
     )
 }
