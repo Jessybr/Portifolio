@@ -1,33 +1,20 @@
 import { useState, useEffect } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
-import { getSoftSkill } from "../../api/softSkillApi"
-import { getTechnology } from "../../api/technologyApi"
+import SkillForm from "../forms/skillForm"
+import useSkills from "../../utils/useSkills"
 
 interface SkillListProps {
+    displaySkillForm: boolean
     setDisplaySkillForm: React.Dispatch<React.SetStateAction<boolean>>
     loginIn:boolean
 }
 
-interface TechnologyData {
-    id: number
-    nome: string
-    iconeSrc: string
-}
-
-interface SoftSkillData {
-    id: number
-    nome: string
-    iconeSrc: string
-}
-
-function SkillsList({ setDisplaySkillForm, loginIn }: SkillListProps) {
-    const [softSkill, setSoftSkill] = useState<SoftSkillData[]>([])
-    const [technology, setTechnology] = useState<TechnologyData[]>([])
-    const [loading, setLoading] = useState(true)
+function SkillsList({ displaySkillForm, setDisplaySkillForm, loginIn }: SkillListProps) {
     const [mostrarSoft, setMostrarSoft] = useState(false)
     const [mostrarHard, setMostrarHard] = useState(false)
     const [alturaAuto, setAlturaAuto] = useState(false)
+    const {softSkills, technologies, loading, loadSkills} = useSkills()
 
     useEffect(() => {
         function handleScroll() {
@@ -51,27 +38,13 @@ function SkillsList({ setDisplaySkillForm, loginIn }: SkillListProps) {
             window.removeEventListener('scroll', handleScroll)
         }
         }, [])
-    
-    useEffect(() => {
-        async function loadSkills() {
-            try {
-                const responseSoftSkill = await getSoftSkill()
-                setSoftSkill(responseSoftSkill.data.softSkills)
-
-                const responseTechnology = await getTechnology()
-                setTechnology(responseTechnology.data.technologies)
-            } catch(error) {
-                console.error("Erro ao carregar projetos", error)
-            } finally {
-                setLoading(false)
-            }
-        }
-
-        loadSkills()
-    }, [])
 
     return (
         <>
+        <SkillForm 
+            displaySkillForm={displaySkillForm}
+            setDisplaySkillForm={setDisplaySkillForm}
+            loadSkillList={loadSkills}/>
         <div className={alturaAuto ? 'cont_skills heiAuto' : 'cont_skills'} id="skills">
             <FontAwesomeIcon icon={faPenToSquare}  className={loginIn? "faPenToSquareSkill":"faPenToSquareSkill dispNone"} onClick={() => setDisplaySkillForm(true)}/>
             <div className="topic_title">
@@ -82,7 +55,7 @@ function SkillsList({ setDisplaySkillForm, loginIn }: SkillListProps) {
                 <ul>
                     {loading ?
                     (<p>Carregando projetos...</p>) : 
-                    (softSkill.map(skill => 
+                    (softSkills.map(skill => 
                             (
                                 <li>
                                     {skill.nome}
@@ -97,7 +70,7 @@ function SkillsList({ setDisplaySkillForm, loginIn }: SkillListProps) {
                 <ul>
                     {loading ? 
                     (<p>Carregando projetos...</p>) :
-                    (softSkill && technology.map(skill => 
+                    (technologies.map(skill => 
                             (
                                 <li>
                                     {skill.nome}
