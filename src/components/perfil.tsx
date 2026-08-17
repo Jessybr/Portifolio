@@ -3,14 +3,16 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faSquareLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { getPerfil } from '../api/perfilApi';
 import { useEffect, useState } from 'react';
+import PerfilForm from './forms/perfilForm';
+import Login from './forms/login';
 
 interface PerfilProps {
+    displayFormLogin: boolean
     setDisplayFormLogin: React.Dispatch<React.SetStateAction<boolean>>
     displayPerfilForm: boolean
     setDisplayPerfilForm: React.Dispatch<React.SetStateAction<boolean>>
-    loginIn: boolean,
-    perfil: PerfilData | null
-    setPerfil: React.Dispatch<React.SetStateAction<PerfilData | null>>
+    loginIn: boolean
+    setLoginIn: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 interface PerfilData {
@@ -43,6 +45,15 @@ function Perfil({ setDisplayFormLogin, setDisplayPerfilForm, loginIn, perfil, se
 
     return (
         <>
+        <Login 
+            displayFormLogin={displayFormLogin}
+            setDisplayFormLogin={setDisplayFormLogin}
+            setLoginIn={setLoginIn}/>
+        <PerfilForm 
+            displayPerfilForm={displayPerfilForm}
+            setDisplayPerfilForm={setDisplayPerfilForm}
+            loadPerfil={loadPerfil}
+        />
         <header>
             <div className="cont_inicio">
                 <FontAwesomeIcon icon={faPenToSquare} className={loginIn? "faPenToSquare":"faPenToSquare dispNone"} onClick={() => setDisplayPerfilForm(true)}/>
