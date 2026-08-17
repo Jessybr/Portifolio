@@ -14,15 +14,17 @@ function SkillSpan({ id, skillName, iconSrc, loadSkills, type }: SkillSpanProps)
         try{
             if(type==="softSkill") {
                 const result = await deleteSoftSkill(id)
-                loadSkills()
+                showSuccessToast("Soft Skill deletada com sucesso!")
             } else {
                 if(type==="technology") {
                     const result = await deleteTechnology(id)
-                    loadSkills()
+                    showSuccessToast("Tecnologia deletada com sucesso!")
                 }
             }
         } catch(error) {
-            console.log(error)
+            if (axios.isAxiosError(error)) {
+                handleApiError(error.status)
+            }
         }
     }
 

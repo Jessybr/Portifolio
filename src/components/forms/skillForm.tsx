@@ -72,9 +72,11 @@ function SkillForm({ displaySkillForm, setDisplaySkillForm }: SkillFormProps) {
         try {
             const result = await postSoftSkill(dataSkill)
             loadSkills()
-            console.error(result)
+            showSuccessToast("Tecnologia adicionada com sucesso!")
         } catch(error) {
-            console.error("Erro", error)
+            if (axios.isAxiosError(error)) {
+                handleApiError(error.status)
+            }
         }
     }
 
@@ -85,7 +87,9 @@ function SkillForm({ displaySkillForm, setDisplaySkillForm }: SkillFormProps) {
             loadSkills()
             console.error(result)
         } catch(error) {
-            console.error("Erro", error)
+            if (axios.isAxiosError(error)) {
+                handleApiError(error.status)
+            }
         }
     }
 
