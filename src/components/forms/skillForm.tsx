@@ -7,44 +7,39 @@ import useSkills from "../../utils/useSkills"
 interface SkillFormProps {
     displaySkillForm: boolean
     setDisplaySkillForm: React.Dispatch<React.SetStateAction<boolean>>
+    loadSkillList: () => Promise<void>
 }
 
 interface TechnologyData {
-    id: number
     nome: string
-    iconeSrc: string
 }
 
 interface SoftSkillData {
-    id: number
     nome: string
-    iconeSrc: string
 }
 
-function SkillForm({ displaySkillForm, setDisplaySkillForm }: SkillFormProps) {
-    const [softSkill, setSoftSkill] = useState<SoftSkillData[]>([])
-    const [technology, setTechnology] = useState<TechnologyData[]>([])
-    const [dataSkill, setDataSkill] = useState({
+function SkillForm({ displaySkillForm, setDisplaySkillForm, loadSkillList }: SkillFormProps) {
+    const [dataSkill, setDataSkill] = useState<SoftSkillData>({
         nome: ''
     })
-    const [dataTech, setDataTech] = useState({
+    const [dataTech, setDataTech] = useState<TechnologyData>({
         nome: ''
     })
     const {softSkills, technologies, loading, loadSkills, addSoftSkill, addTechnology, deleteSkill} = useSkills()
 
     const handleTextInputDataSkill = (evento: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = evento.target;
+        const { value } = evento.target;
         setDataSkill((dadosAnteriores) => ({
             ...dadosAnteriores,
-            [name]: value,
+            nome: value,
         }))
     }
 
     const handleTextInputDataTech = (evento: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = evento.target;
+        const { value } = evento.target;
         setDataTech((dadosAnteriores) => ({
             ...dadosAnteriores,
-            [name]: value,
+            nome: value,
         }))
     }
 
@@ -87,14 +82,14 @@ function SkillForm({ displaySkillForm, setDisplaySkillForm }: SkillFormProps) {
                 <div className="skill_cont">
                     {loading ?
                     (<p>Carregando projetos...</p>) : 
-                    (softSkill.map(skill => 
+                    (softSkills.map(skill => 
                             (
                                 <SkillSpan 
                                 id={skill.id}
                                 skillName={skill.nome}
-                                iconSrc={skill.iconeSrc}
-                                loadSkills={loadSkills}
-                                type="softSkill"/>
+                                deleteSkill={deleteSkill}
+                                type="softSkill"
+                                loadSkillList={loadSkillList}/>
                             )
                         )
                     )}
@@ -109,14 +104,14 @@ function SkillForm({ displaySkillForm, setDisplaySkillForm }: SkillFormProps) {
                 <div className="skill_cont">
                     {loading ?
                     (<p>Carregando projetos...</p>) : 
-                    (technology.map(skill => 
+                    (technologies.map(skill => 
                             (
                                 <SkillSpan 
                                 id={skill.id}
                                 skillName={skill.nome}
-                                iconSrc={skill.iconeSrc}
-                                loadSkills={loadSkills}
-                                type="technology"/>
+                                deleteSkill={deleteSkill}
+                                type="technology"
+                                loadSkillList={loadSkillList}/>
                             )
                         )
                     )}
