@@ -1,9 +1,8 @@
 import { useEffect, useState, type ChangeEvent } from "react"
 import SkillSpan from "../main/component/skillSpan"
-import { getSoftSkill } from "../../api/softSkillApi"
-import { getTechnology } from "../../api/technologyApi"
-import { postSoftSkill } from "../../api/admin/softSkillAdminApi"
-import { postTechnology } from "../../api/admin/technologyAdminApi"
+import axios from "axios"
+import { handleApiError, showSuccessToast } from "../../utils/toast"
+import useSkills from "../../utils/useSkills"
 
 interface SkillFormProps {
     displaySkillForm: boolean
@@ -31,25 +30,7 @@ function SkillForm({ displaySkillForm, setDisplaySkillForm }: SkillFormProps) {
     const [dataTech, setDataTech] = useState({
         nome: ''
     })
-    const [loading, setLoading] = useState(true)
-
-    async function loadSkills() {
-        try {
-            const responseSoftSkill = await getSoftSkill()
-            setSoftSkill(responseSoftSkill.data.softSkills)
-
-            const responseTechnology = await getTechnology()
-            setTechnology(responseTechnology.data.technologies)
-        } catch(error) {
-            console.error("Erro ao carregar projetos", error)
-        } finally {
-            setLoading(false)
-        }
-    }
-
-    useEffect(() => {
-        loadSkills()
-    }, [])
+    const {softSkills, technologies, loading, loadSkills, addSoftSkill, addTechnology, deleteSkill} = useSkills()
 
     const handleTextInputDataSkill = (evento: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = evento.target;
@@ -70,8 +51,8 @@ function SkillForm({ displaySkillForm, setDisplaySkillForm }: SkillFormProps) {
     async function handleSubmitSoftSkill(event: React.SubmitEvent<HTMLFormElement>) {
         event.preventDefault()
         try {
-            const result = await postSoftSkill(dataSkill)
-            loadSkills()
+            await addSoftSkill(dataSkill)
+            loadSkillList()
             showSuccessToast("Tecnologia adicionada com sucesso!")
         } catch(error) {
             if (axios.isAxiosError(error)) {
@@ -83,9 +64,9 @@ function SkillForm({ displaySkillForm, setDisplaySkillForm }: SkillFormProps) {
     async function handleSubmitTech(event: React.SubmitEvent<HTMLFormElement>) {
         event.preventDefault()
         try {
-            const result = await postTechnology(dataTech)
-            loadSkills()
-            console.error(result)
+            await addTechnology(dataTech)
+            loadSkillList()
+            showSuccessToast("Tecnologia adicionada com sucesso!")
         } catch(error) {
             if (axios.isAxiosError(error)) {
                 handleApiError(error.status)
