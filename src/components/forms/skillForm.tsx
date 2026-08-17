@@ -1,4 +1,4 @@
-import { useEffect, useState, type ChangeEvent } from "react"
+import { useState, type ChangeEvent } from "react"
 import SkillSpan from "../main/component/skillSpan"
 import axios from "axios"
 import { handleApiError, showSuccessToast } from "../../utils/toast"
@@ -25,7 +25,7 @@ function SkillForm({ displaySkillForm, setDisplaySkillForm, loadSkillList }: Ski
     const [dataTech, setDataTech] = useState<TechnologyData>({
         nome: ''
     })
-    const {softSkills, technologies, loading, loadSkills, addSoftSkill, addTechnology, deleteSkill} = useSkills()
+    const {softSkills, technologies, loading, addSoftSkill, addTechnology, deleteSkill} = useSkills()
 
     const handleTextInputDataSkill = (evento: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { value } = evento.target;
