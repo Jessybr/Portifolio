@@ -1,10 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faSquareLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { getPerfil } from '../api/perfilApi';
-import { useEffect, useState } from 'react';
 import PerfilForm from './forms/perfilForm';
 import Login from './forms/login';
+import usePerfil from '../utils/usePerfil';
 
 interface PerfilProps {
     displayFormLogin: boolean
@@ -15,33 +14,8 @@ interface PerfilProps {
     setLoginIn: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-interface PerfilData {
-    id: number
-    nomeCompleto: string
-    linkedinUrl: string
-    githubUrl: string
-    curriculoSrc: string
-    fotoSrc: string
-    breveDescricao: string
-}
-
-function Perfil({ setDisplayFormLogin, setDisplayPerfilForm, loginIn, perfil, setPerfil }: PerfilProps) {
-    const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
-        async function loadPerfil() {
-            try {
-                const response = await getPerfil()
-                setPerfil(response.data.data.perfil)
-            } catch(error) {
-                console.error("Erro ao carregar projetos", error)
-            } finally {
-                setLoading(false)
-            }
-        }
-
-        loadPerfil()
-    }, [])
+function Perfil({ displayFormLogin, setDisplayFormLogin, displayPerfilForm, setDisplayPerfilForm, loginIn, setLoginIn }: PerfilProps) {
+    const {perfil, loading, loadPerfil} = usePerfil()
 
     return (
         <>
