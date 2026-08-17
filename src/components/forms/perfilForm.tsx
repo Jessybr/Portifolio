@@ -3,24 +3,15 @@ import { patchPerfil } from "../../api/admin/perfilAdminApi"
 import { useEffect, useState, type ChangeEvent } from "react"
 import { Bounce, toast, ToastContainer } from "react-toastify"
 import { getPerfil } from "../../api/perfilApi"
+import { handleApiError, showSuccessToast } from "../../utils/toast"
 
 interface PerfilFormProps {
     displayPerfilForm: boolean
     setDisplayPerfilForm: React.Dispatch<React.SetStateAction<boolean>>
-    setPerfil: React.Dispatch<React.SetStateAction<PerfilData | null>>
+    loadPerfil: () => void
 }
 
-interface PerfilData {
-    id: number
-    nomeCompleto: string
-    linkedinUrl: string
-    githubUrl: string
-    curriculoSrc: string
-    fotoSrc: string
-    breveDescricao: string
-}
-
-function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, setPerfil }: PerfilFormProps) {
+function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, loadPerfil }: PerfilFormProps) {
     const [formData, setFormData] = useState({
         nomeCompleto: '',
         email: '',
@@ -48,37 +39,6 @@ function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, setPerfil }: Perf
 
         loadPerfil()
     }, [])
-
-        
-    const status500 = () => {
-        toast.error("Erro, tente novamente.", 
-            {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            transition: Bounce,
-        })
-    }
-
-    const status200 = () => {
-        toast.success("Informações editadas com sucesso!", 
-            {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            transition: Bounce,
-        })
-    }
 
     const handleTextInput = (evento: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = evento.target;
@@ -119,29 +79,16 @@ function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, setPerfil }: Perf
 
         try {
             const response = await patchPerfil(data)
-            setPerfil(response.data.perfil)
-            status200()
+            loadPerfil()
+            showSuccessToast("Perfil editado com sucesso!")
         } catch (error) {
             if (axios.isAxiosError(error)) {
-                status500()
+                handleApiError(error.status)
             }
         }
     }
     return (
         <>
-        <ToastContainer
-            position="top-center"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick={false}
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="light"
-            transition={Bounce}
-            />
         {loading? (<p>Aguardando informações...</p>) : (
             <>
             <div className={displayPerfilForm? "perfilForm fixed" : "perfilForm dispNone"}>
