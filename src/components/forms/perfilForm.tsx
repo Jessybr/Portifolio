@@ -6,7 +6,7 @@ interface PerfilFormProps {
     displayPerfilForm: boolean
     setDisplayPerfilForm: React.Dispatch<React.SetStateAction<boolean>>
     loading: boolean
-    perfil: PerfilData
+    perfil: PerfilData | undefined
     loadPerfil: () => Promise<void>
     updatePerfil: (dataForm: PerfilRequest) => Promise<void> 
 }
@@ -38,15 +38,15 @@ interface PerfilRequest {
 
 function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, perfil, loading, loadPerfil, updatePerfil }: PerfilFormProps) {
     const [formData, setFormData] = useState<PerfilRequest>({
-        nomeCompleto: perfil.nomeCompleto ?? '',
-        email: perfil.email ?? '',
-        celular: perfil.celular ?? '',
-        linkedinUrl: perfil.linkedinUrl ?? '',
-        githubUrl: perfil.githubUrl ?? '',
+        nomeCompleto: perfil?.nomeCompleto ?? '',
+        email: perfil?.email ?? '',
+        celular: perfil?.celular ?? '',
+        linkedinUrl: perfil?.linkedinUrl ?? '',
+        githubUrl: perfil?.githubUrl ?? '',
         pdf: null,
         imagem: null,
-        breveDescricao: perfil.breveDescricao ?? '',
-        sobreMim: perfil.sobreMim ?? '',
+        breveDescricao: perfil?.breveDescricao ?? '',
+        sobreMim: perfil?.sobreMim ?? '',
     });
 
     const handleTextInput = (evento: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
