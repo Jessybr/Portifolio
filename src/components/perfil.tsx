@@ -15,7 +15,7 @@ interface PerfilProps {
 }
 
 function Perfil({ displayFormLogin, setDisplayFormLogin, displayPerfilForm, setDisplayPerfilForm, loginIn, setLoginIn }: PerfilProps) {
-    const {perfil, loading, loadPerfil} = usePerfil()
+    const {perfil, loading, loadPerfil, updatePerfil} = usePerfil()
 
     return (
         <>
@@ -26,7 +26,10 @@ function Perfil({ displayFormLogin, setDisplayFormLogin, displayPerfilForm, setD
         <PerfilForm 
             displayPerfilForm={displayPerfilForm}
             setDisplayPerfilForm={setDisplayPerfilForm}
+            perfil={perfil}
+            loading={loading}
             loadPerfil={loadPerfil}
+            updatePerfil={updatePerfil}
         />
         <header>
             <div className="cont_inicio">
