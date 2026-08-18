@@ -8,6 +8,12 @@ import { handleApiError, showSuccessToast } from "../../utils/toast"
 interface PerfilFormProps {
     displayPerfilForm: boolean
     setDisplayPerfilForm: React.Dispatch<React.SetStateAction<boolean>>
+    loading: boolean
+    perfil: PerfilData
+    loadPerfil: () => Promise<void>
+    updatePerfil: (dataForm: PerfilRequest) => Promise<void> 
+}
+
 interface PerfilData {
     id?: number
     nomeCompleto?: string
