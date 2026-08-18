@@ -8,16 +8,31 @@ import { handleApiError, showSuccessToast } from "../../utils/toast"
 interface PerfilFormProps {
     displayPerfilForm: boolean
     setDisplayPerfilForm: React.Dispatch<React.SetStateAction<boolean>>
-    loadPerfil: () => void
+interface PerfilData {
+    id?: number
+    nomeCompleto?: string
+    email?: string
+    celular?: string
+    linkedinUrl?: string
+    githubUrl?: string
+    curriculoSrc?: string
+    fotoSrc?: string
+    breveDescricao?: string
+    sobreMim?: string
 }
 
-function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, loadPerfil }: PerfilFormProps) {
-    const [formData, setFormData] = useState({
-        nomeCompleto: '',
-        email: '',
-        celular: '',
-        linkedinUrl: '',
-        githubUrl: '',
+interface PerfilRequest {
+    nomeCompleto: string
+    email: string
+    celular: string
+    linkedinUrl: string
+    githubUrl: string
+    pdf: null
+    imagem: null
+    breveDescricao: string
+    sobreMim: string
+}
+
         pdf: null,
         imagem: null,
         breveDescricao: '',
