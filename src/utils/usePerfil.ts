@@ -2,13 +2,28 @@ import { useEffect, useState } from "react"
 import { getPerfil } from "../api/perfilApi"
 
 interface PerfilData {
-    id: number
+    id?: number
+    nomeCompleto?: string
+    email?: string
+    celular?: string
+    linkedinUrl?: string
+    githubUrl?: string
+    curriculoSrc?: string
+    fotoSrc?: string
+    breveDescricao?: string
+    sobreMim?: string
+}
+
+interface PerfilRequest {
     nomeCompleto: string
+    email: string
+    celular: string
     linkedinUrl: string
     githubUrl: string
-    curriculoSrc: string
-    fotoSrc: string
+    pdf: null
+    imagem: null
     breveDescricao: string
+    sobreMim: string
 }
 
 function usePerfil() {
