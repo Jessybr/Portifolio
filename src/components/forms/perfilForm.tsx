@@ -1,8 +1,5 @@
 import axios from "axios"
-import { patchPerfil } from "../../api/admin/perfilAdminApi"
-import { useEffect, useState, type ChangeEvent } from "react"
-import { Bounce, toast, ToastContainer } from "react-toastify"
-import { getPerfil } from "../../api/perfilApi"
+import { useState, type ChangeEvent } from "react"
 import { handleApiError, showSuccessToast } from "../../utils/toast"
 
 interface PerfilFormProps {
@@ -39,27 +36,18 @@ interface PerfilRequest {
     sobreMim: string
 }
 
+function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, perfil, loading, loadPerfil, updatePerfil }: PerfilFormProps) {
+    const [formData, setFormData] = useState<PerfilRequest>({
+        nomeCompleto: perfil.nomeCompleto ?? '',
+        email: perfil.email ?? '',
+        celular: perfil.celular ?? '',
+        linkedinUrl: perfil.linkedinUrl ?? '',
+        githubUrl: perfil.githubUrl ?? '',
         pdf: null,
         imagem: null,
-        breveDescricao: '',
-        sobreMim: '',
+        breveDescricao: perfil.breveDescricao ?? '',
+        sobreMim: perfil.sobreMim ?? '',
     });
-    const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
-        async function loadPerfil() {
-            try {
-                const response = await getPerfil()
-                setFormData(response.data.data.perfil)
-            } catch(error) {
-                console.error("Erro ao carregar projetos", error)
-            } finally {
-                setLoading(false)
-            }
-        }
-
-        loadPerfil()
-    }, [])
 
     const handleTextInput = (evento: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = evento.target;
@@ -81,25 +69,8 @@ interface PerfilRequest {
 
     async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
         event.preventDefault()
-
-        const data = new FormData()
-        data.append('nomeCompleto', formData.nomeCompleto)
-        data.append('email', formData.email)
-        data.append('celular', formData.celular)
-        data.append('linkedinUrl', formData.linkedinUrl)
-        data.append('githubUrl', formData.githubUrl)
-        data.append('breveDescricao', formData.breveDescricao)
-        data.append('sobreMim', formData.sobreMim)
-
-        if (formData.pdf) {
-            data.append('pdf', formData.pdf);
-        }
-        if (formData.imagem) {
-            data.append('imagem', formData.imagem);
-        }
-
         try {
-            const response = await patchPerfil(data)
+            await updatePerfil(formData)
             loadPerfil()
             showSuccessToast("Perfil editado com sucesso!")
         } catch (error) {
@@ -108,6 +79,7 @@ interface PerfilRequest {
             }
         }
     }
+
     return (
         <>
         {loading? (<p>Aguardando informações...</p>) : (
