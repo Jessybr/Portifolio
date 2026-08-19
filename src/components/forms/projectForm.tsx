@@ -95,6 +95,23 @@ function ProjectForm({ displayProjectForm, setDisplayProjectForm, allProjects, l
                 setFormData((dadosAnteriores) => ({
                     ...dadosAnteriores,
                     [name]: files[0],
+                }))
+            }
+    }
+
+    const handleOnChangeTechs = (technologyId: number) => {
+        setFormData((dadosAnteriores) => {
+            const tecnologias = dadosAnteriores.tecnologias.includes(technologyId)
+                ? dadosAnteriores.tecnologias.filter((id) => id !== technologyId)
+                : [...dadosAnteriores.tecnologias, technologyId]
+
+            return {
+                ...dadosAnteriores,
+                tecnologias
+            }
+        })
+    }
+
     async function handleProjectStatus(projectId: number) {
         try {
             const response = await updateStatusProject(projectId)
