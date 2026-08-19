@@ -33,3 +33,8 @@ export async function getProjectById(id: number): Promise<ProjectData> {
     const response = await api.get(`/project/${id}`)
     return response.data.data.project
 }
+
+export async function getProjectByName(name: string): Promise<ProjectData> {
+    const response = await api.get(`/project/${name}`)
+    return response.data.data.project
+}
