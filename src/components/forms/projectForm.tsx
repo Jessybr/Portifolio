@@ -172,35 +172,22 @@ function ProjectForm({ displayProjectForm, setDisplayProjectForm, allProjects, l
     async function handleSubmitFormToPatchOrPostProject(event: React.SubmitEvent<HTMLFormElement>) {
         event.preventDefault()
 
-        const data = new FormData()
-        data.append('nome', formData.nome)
-        data.append('descricao', formData.descricao)
-        data.append('deployUrl', formData.deployUrl)
-        data.append('githubUrl', formData.githubUrl)
-        if (formData.ativo) {
-            data.append('ativo', formData.ativo)
-        }
-        //data.append('tecnologias', JSON.stringify(formData.tecnologias))
-
-        if (formData.videoSrc) {
-            data.append('video', formData.videoSrc)
-        }
-        if (formData.imagemSrc) {
-            data.append('imagem', formData.imagemSrc)
-        }
-
-        console.log("formdata img: ",data.get('imagem'))
-        console.log("formdata video: ",data.get('video'))
-
         try {
             if(selectedProject) {
-                const response = await patchProjectById(projectId, data)
-            console.log(response)
+                await updateProject(formData, projectId)
+                showSuccessToast("Projeto atualizado com sucesso!")
             } else {
-                const response = await postProject(data)
-            console.log(response)
+                showSuccessToast("Projeto criado com sucesso!")
+                await createProject(formData)
             }
-            loadProjects()
+            await loadAllProjects()
+            await loadActiveProjects()
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                handleApiError(error.status)
+            }
+        }
+    }
         } catch (error) {
             console.log(error)
             // if (axios.isAxiosError(error)) {
