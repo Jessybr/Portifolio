@@ -2,6 +2,7 @@ import { useEffect, useState, type ChangeEvent } from "react"
 import axios from "axios"
 import { handleApiError, showSuccessToast } from "../../utils/toast"
 import useSkills from "../../utils/useSkills"
+import type { ProjectData, ProjectRequest } from "../../types/project"
 
 interface ProjectFormProps {
     displayProjectForm: boolean
@@ -14,39 +15,6 @@ interface ProjectFormProps {
     deleteProject: (projectId: number) => Promise<void>
     findProjectByName: (name: string) => Promise<ProjectData | null>
     updateStatusProject: (projectId: number) => Promise<ProjectData | null>
-}
-
-interface ProjectData {
-    id: number
-    nome: string
-    descricao: string
-    ativo: boolean
-    videoSrc: string
-    videoPublicId: string
-    imagemSrc: string
-    imagemPublicId: string
-    deployUrl: string
-    githubUrl: string
-    tecnologias: Array<{
-        tecnologia_id: number
-        projeto_id: number
-        tecnologia: {
-            id: number
-            nome: string
-            iconeSrc: string
-        }
-    }>
-}
-
-interface ProjectRequest {
-    nome: string
-    descricao: string
-    ativo: string
-    videoSrc: File | null
-    imagemSrc: File | null
-    deployUrl: string
-    githubUrl: string
-    tecnologias: number[]
 }
 
 function ProjectForm({ displayProjectForm, setDisplayProjectForm, allProjects, loadAllProjects, loadActiveProjects, createProject, updateProject, deleteProject, findProjectByName, updateStatusProject }: ProjectFormProps) {
