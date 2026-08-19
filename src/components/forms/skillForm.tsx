@@ -3,6 +3,8 @@ import SkillSpan from "../main/component/skillSpan"
 import axios from "axios"
 import { handleApiError, showSuccessToast } from "../../utils/toast"
 import useSkills from "../../utils/useSkills"
+import type { SoftSkillRequest } from "../../types/softSkill"
+import type { TechnologyRequest } from "../../types/technology"
 
 interface SkillFormProps {
     displaySkillForm: boolean
@@ -10,19 +12,11 @@ interface SkillFormProps {
     loadSkillList: () => Promise<void>
 }
 
-interface TechnologyData {
-    nome: string
-}
-
-interface SoftSkillData {
-    nome: string
-}
-
 function SkillForm({ displaySkillForm, setDisplaySkillForm, loadSkillList }: SkillFormProps) {
-    const [dataSkill, setDataSkill] = useState<SoftSkillData>({
+    const [dataSkill, setDataSkill] = useState<SoftSkillRequest>({
         nome: ''
     })
-    const [dataTech, setDataTech] = useState<TechnologyData>({
+    const [dataTech, setDataTech] = useState<TechnologyRequest>({
         nome: ''
     })
     const {softSkills, technologies, loading, addSoftSkill, addTechnology, deleteSkill} = useSkills()

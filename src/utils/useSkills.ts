@@ -4,15 +4,7 @@ import { getTechnology } from "../api/technologyApi"
 import { deleteSoftSkill, postSoftSkill } from "../api/admin/softSkillAdminApi"
 import { deleteTechnology, postTechnology } from "../api/admin/technologyAdminApi"
 import type { SoftSkillData, SoftSkillRequest } from "../types/softSkill"
-
-interface TechnologyData {
-    id: number
-    nome: string
-}
-
-interface TechnologyDataRequest {
-    nome: string
-}
+import type { TechnologyData, TechnologyRequest } from "../types/technology"
 
 function useSkills() {
     const [softSkills, setSoftSkills] = useState<SoftSkillData[]>([])
@@ -39,7 +31,7 @@ function useSkills() {
         await loadSkills()
     }
 
-    async function addTechnology(data: TechnologyDataRequest) {
+    async function addTechnology(data: TechnologyRequest) {
         await postTechnology(data)
         await loadSkills()
     }
