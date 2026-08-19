@@ -5,7 +5,6 @@ export interface PerfilData {
     celular?: string
     linkedinUrl?: string
     githubUrl?: string
-    curriculoSrc?: string
     fotoSrc?: string
     breveDescricao?: string
     sobreMim?: string
@@ -17,7 +16,6 @@ export interface PerfilRequest {
     celular: string
     linkedinUrl: string
     githubUrl: string
-    pdf: File | null
     imagem: File | null
     breveDescricao: string
     sobreMim: string
