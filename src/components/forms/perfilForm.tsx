@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useState, type ChangeEvent } from "react"
 import { handleApiError, showSuccessToast } from "../../utils/toast"
+import type { PerfilData, PerfilRequest } from "../../types/perfil"
 
 interface PerfilFormProps {
     displayPerfilForm: boolean
@@ -9,31 +10,6 @@ interface PerfilFormProps {
     perfil: PerfilData | undefined
     loadPerfil: () => Promise<void>
     updatePerfil: (dataForm: PerfilRequest) => Promise<void> 
-}
-
-interface PerfilData {
-    id?: number
-    nomeCompleto?: string
-    email?: string
-    celular?: string
-    linkedinUrl?: string
-    githubUrl?: string
-    curriculoSrc?: string
-    fotoSrc?: string
-    breveDescricao?: string
-    sobreMim?: string
-}
-
-interface PerfilRequest {
-    nomeCompleto: string
-    email: string
-    celular: string
-    linkedinUrl: string
-    githubUrl: string
-    pdf: null
-    imagem: null
-    breveDescricao: string
-    sobreMim: string
 }
 
 function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, perfil, loading, loadPerfil, updatePerfil }: PerfilFormProps) {

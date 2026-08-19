@@ -1,31 +1,7 @@
 import { useEffect, useState } from "react"
 import { getPerfil } from "../api/perfilApi"
 import { patchPerfil } from "../api/admin/perfilAdminApi"
-
-interface PerfilData {
-    id?: number
-    nomeCompleto?: string
-    email?: string
-    celular?: string
-    linkedinUrl?: string
-    githubUrl?: string
-    curriculoSrc?: string
-    fotoSrc?: string
-    breveDescricao?: string
-    sobreMim?: string
-}
-
-interface PerfilRequest {
-    nomeCompleto: string
-    email: string
-    celular: string
-    linkedinUrl: string
-    githubUrl: string
-    pdf: null
-    imagem: null
-    breveDescricao: string
-    sobreMim: string
-}
+import type { PerfilData, PerfilRequest } from "../types/perfil"
 
 function usePerfil() {
     const [perfil, setPerfil] = useState<PerfilData>()
