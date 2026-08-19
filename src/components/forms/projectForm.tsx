@@ -70,6 +70,10 @@ function ProjectForm({ displayProjectForm, setDisplayProjectForm, allProjects, l
             loadSkills()
     }, [])
 
+    useEffect(() => {
+        setProjectStatus(formData.ativo === "true")
+    }, [formData.ativo])
+
     const handleTextInputValue = (evento: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = evento.target;
         setFormData((dadosAnteriores) => ({
