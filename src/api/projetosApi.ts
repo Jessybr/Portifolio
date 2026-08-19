@@ -24,7 +24,7 @@ interface ProjectData {
     ],
 }
 
-export async function getProjects() {
+export async function getActiveProjects() {
     const response = await api.get("/project/active")
     return response
 }
