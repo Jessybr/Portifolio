@@ -188,11 +188,17 @@ function ProjectForm({ displayProjectForm, setDisplayProjectForm, allProjects, l
             }
         }
     }
+
+    async function handleDeleteProject(id: number) {
+        try {
+            await deleteProject(id)
+            await loadAllProjects()
+            await loadActiveProjects()
+            showSuccessToast("Projeto deletado com sucesso!")
         } catch (error) {
-            console.log(error)
-            // if (axios.isAxiosError(error)) {
-            //     status500()
-            // }
+            if (axios.isAxiosError(error)) {
+                handleApiError(error.status)
+            }
         }
     }
 
