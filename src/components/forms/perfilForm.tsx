@@ -1,7 +1,9 @@
 import axios from "axios"
 import { useState, type ChangeEvent } from "react"
-import { handleApiError, showSuccessToast } from "../../utils/toast"
+import { handleApiError, showErrorToast, showSuccessToast } from "../../utils/toast"
 import type { PerfilData, PerfilRequest } from "../../types/perfil"
+import { validateFile } from "../../utils/fileValidation"
+import { FILE_RULES } from "../../utils/fileRules"
 
 interface PerfilFormProps {
     displayPerfilForm: boolean
@@ -33,13 +35,29 @@ function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, perfil, loading, 
     };
 
     const handleFileInput = (evento: ChangeEvent<HTMLInputElement>) => {
-        const { name, files } = evento.target;
-            if (files && files.length > 0) {
-                setFormData((dadosAnteriores) => ({
-                    ...dadosAnteriores,
-                    [name]: files[0],
-            }));
+        const { name, files } = evento.target
+
+        if (!files || files.length === 0) {
+            return
         }
+
+        const file = files[0]
+
+        let error
+        if(name === 'imagem') {
+            error = validateFile(file, FILE_RULES.image)
+        }
+
+        if (error) {
+            showErrorToast(error)
+            evento.target.value = ''
+            return
+        }
+
+        setFormData((dadosAnteriores) => ({
+            ...dadosAnteriores,
+            [name]: file,
+        }))
     }
 
     async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
