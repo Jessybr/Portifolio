@@ -237,6 +237,12 @@ function ProjectForm({ displayProjectForm, setDisplayProjectForm, allProjects, l
                 <label htmlFor="video">Vídeo</label>
                 <input type="file" name="videoSrc" id="videoSrc" onChange={handleFileInputValue}/>
                 <button type="submit">Salvar</button>
+                {selectedProject && (
+                    <>
+                        <button type="button" onClick={() => handleProjectStatus(projectId)}>{projectStatus ? (<p>Desativar</p>) : (<p>Ativar</p>)}</button>
+                        <button type="button" onClick={() => handleDeleteProject(projectId)}>Deletar</button>
+                    </>
+                )}
             </form>
         </div>
         </>
