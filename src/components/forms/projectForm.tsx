@@ -1,10 +1,19 @@
 import { useEffect, useState, type ChangeEvent } from "react"
-import { getProjectById } from "../../api/projetosApi"
-import { getAllProjects, patchProjectById, postProject } from "../../api/admin/projectAdminApi"
+import axios from "axios"
+import { handleApiError, showSuccessToast } from "../../utils/toast"
+import useSkills from "../../utils/useSkills"
 
 interface ProjectFormProps {
     displayProjectForm: boolean
     setDisplayProjectForm: React.Dispatch<React.SetStateAction<boolean>>
+    allProjects: ProjectData[]
+    loadAllProjects: () => Promise<void>
+    loadActiveProjects: () => Promise<void>
+    createProject: (formData: ProjectRequest) => Promise<void>
+    updateProject: (formData: ProjectRequest, projectId: number) => Promise<void>
+    deleteProject: (projectId: number) => Promise<void>
+    findProjectByName: (name: string) => Promise<ProjectData | null>
+    updateStatusProject: (projectId: number) => Promise<ProjectData | null>
 }
 
 interface ProjectData {
@@ -29,7 +38,7 @@ interface ProjectData {
     }>
 }
 
-interface ProjectFormData {
+interface ProjectRequest {
     nome: string
     descricao: string
     ativo: string
@@ -37,15 +46,15 @@ interface ProjectFormData {
     imagemSrc: File | null
     deployUrl: string
     githubUrl: string
-    tecnologias: ProjectData["tecnologias"]
+    tecnologias: number[]
 }
 
-function ProjectForm({ displayProjectForm, setDisplayProjectForm }: ProjectFormProps) {
-    const [projects, setProjects] = useState<ProjectData[]>([])
+function ProjectForm({ displayProjectForm, setDisplayProjectForm, allProjects, loadAllProjects, loadActiveProjects, createProject, updateProject, deleteProject, findProjectByName, updateStatusProject }: ProjectFormProps) {
     const [projectId, setProjectId] = useState(0)
-    const [loading, setLoading] = useState(true)
+    const [projectStatus, setProjectStatus] = useState(false)
     const [selectedProject, setSelectedProject] = useState<string>('');
-    const [formData, setFormData] = useState<ProjectFormData>({
+    const {technologies, loadSkills} = useSkills()
+    const [formData, setFormData] = useState<ProjectRequest>({
         nome: '',
         descricao: '',
         ativo: '',
