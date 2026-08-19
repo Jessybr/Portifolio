@@ -1,8 +1,10 @@
 import { useEffect, useState, type ChangeEvent } from "react"
 import axios from "axios"
-import { handleApiError, showSuccessToast } from "../../utils/toast"
+import { handleApiError, showErrorToast, showSuccessToast } from "../../utils/toast"
 import useSkills from "../../utils/useSkills"
 import type { ProjectData, ProjectRequest } from "../../types/project"
+import { validateFile } from "../../utils/fileValidation"
+import { FILE_RULES } from "../../utils/fileRules"
 
 interface ProjectFormProps {
     displayProjectForm: boolean
@@ -51,13 +53,31 @@ function ProjectForm({ displayProjectForm, setDisplayProjectForm, allProjects, l
     }
 
     const handleFileInputValue = (evento: ChangeEvent<HTMLInputElement>) => {
-        const { name, files } = evento.target;
-            if (files && files.length > 0) {
-                setFormData((dadosAnteriores) => ({
-                    ...dadosAnteriores,
-                    [name]: files[0],
-                }))
-            }
+        const { name, files } = evento.target
+
+        if (!files || files.length === 0) {
+            return
+        }
+
+        const file = files[0]
+        let error
+        if(name === 'imagemSrc') {
+            error = validateFile(file, FILE_RULES.image)
+        }
+        if(name === 'videoSrc') {
+            error = validateFile(file, FILE_RULES.video)
+        }
+
+        if (error) {
+            showErrorToast(error)
+            evento.target.value = ''
+            return
+        }
+
+        setFormData((dadosAnteriores) => ({
+            ...dadosAnteriores,
+            [name]: file,
+        }))
     }
 
     const handleOnChangeTechs = (technologyId: number) => {
