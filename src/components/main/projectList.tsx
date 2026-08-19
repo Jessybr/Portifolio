@@ -1,9 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import Project from './component/project'
-import { getProjects } from '../../api/projetosApi'
-import { useEffect, useState } from 'react'
 import ProjectForm from '../forms/projectForm'
+import useProject from '../../utils/useProject'
 
 interface ProjectListProps {
     displayProjectForm: boolean
@@ -11,48 +10,8 @@ interface ProjectListProps {
     loginIn: boolean
 }
 
-interface ProjectData {
-    id: number
-    nome: string
-    descricao: string
-    ativo: boolean
-    videoSrc: string
-    videoPublicId: string
-    imagemSrc: string
-    imagemPublicId: string
-    deployUrl: string
-    githubUrl: string
-    tecnologias: [
-        {
-            tecnologia_id: number
-            projeto_id: number
-            tecnologia: {
-                id: number
-                nome: string
-                iconeSrc: string
-            }
-        }
-    ],
-}
-
 function ProjectList({ setDisplayProjectForm, loginIn, displayProjectForm }: ProjectListProps) {
-    const [projects, setProjects] = useState<ProjectData[]>([])
-    const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
-        async function loadProjects() {
-            try {
-                const response = await getProjects()
-                setProjects(response.data.data.projects)
-            } catch(error) {
-                console.error("Erro ao carregar projetos", error)
-            } finally {
-                setLoading(false)
-            }
-        }
-
-        loadProjects()
-    }, [])
+    const { allProjects, activeProjects, loading, loadAllProjects, loadActiveProjects, createProject, updateProject, deleteProject, findProjectByName, updateStatusProject } = useProject()
 
     return (
         <>
@@ -60,7 +19,14 @@ function ProjectList({ setDisplayProjectForm, loginIn, displayProjectForm }: Pro
         <ProjectForm 
             displayProjectForm={displayProjectForm}
             setDisplayProjectForm={setDisplayProjectForm}
-            loadActiveProjects={loadProjects}
+            allProjects={allProjects}
+            loadAllProjects={loadAllProjects}
+            loadActiveProjects={loadActiveProjects}
+            createProject={createProject}
+            updateProject={updateProject}
+            deleteProject={deleteProject}
+            findProjectByName={findProjectByName}
+            updateStatusProject={updateStatusProject}
         />
         <div id="proje" className="cont_proj">
             <FontAwesomeIcon icon={faPenToSquare}  className={loginIn? "faPenToSquareProject":"faPenToSquareProject dispNone"} onClick={() => setDisplayProjectForm(true)}/>
@@ -69,7 +35,7 @@ function ProjectList({ setDisplayProjectForm, loginIn, displayProjectForm }: Pro
                 {loading ? (
                     <p>Carregando projetos...</p> 
                     ) : (
-                    projects.map(project => (
+                    activeProjects.map(project => (
                         <Project key={project.id} project={project} />
                     ))
                 )}
