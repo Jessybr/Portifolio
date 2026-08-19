@@ -19,7 +19,6 @@ function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, perfil, loading, 
         celular: perfil?.celular ?? '',
         linkedinUrl: perfil?.linkedinUrl ?? '',
         githubUrl: perfil?.githubUrl ?? '',
-        pdf: null,
         imagem: null,
         breveDescricao: perfil?.breveDescricao ?? '',
         sobreMim: perfil?.sobreMim ?? '',
@@ -71,8 +70,6 @@ function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, perfil, loading, 
                     <input type="text" name="linkedinUrl" id="linkedinUrl" placeholder="Linkedin" value={formData.linkedinUrl} onChange={handleTextInput}/>
                     <input type="text" name="email" id="email" placeholder="Email" value={formData.email} onChange={handleTextInput}/>
                     <input type="text" name="celular" id="celular" placeholder="Celular" value={formData.celular} onChange={handleTextInput}/>
-                    <label htmlFor="pdf">Currículo</label>
-                    <input type="file" name="pdf" id="pdf" placeholder="Currículo" onChange={handleFileInput}/>
                     <label htmlFor="imagem">Foto</label>
                     <input type="file" name="imagem" id="imagem" placeholder="imagem" onChange={handleFileInput}/>
                     <button type="submit">Salvar</button>
