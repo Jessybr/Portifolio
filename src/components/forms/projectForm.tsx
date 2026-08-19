@@ -95,18 +95,30 @@ function ProjectForm({ displayProjectForm, setDisplayProjectForm, allProjects, l
                 setFormData((dadosAnteriores) => ({
                     ...dadosAnteriores,
                     [name]: files[0],
+    async function handleProjectStatus(projectId: number) {
+        try {
+            const response = await updateStatusProject(projectId)
+            console.log(response)
+
+            if (!response) {
+                return
+            }
+
+            const novoStatusAtivo = response.ativo
+
+            setFormData((dadosAnteriores) => ({
+                ...dadosAnteriores,
+                ativo: String(novoStatusAtivo)
             }))
 
-            
-            console.log(formData.imagemSrc)
+            setProjectStatus(novoStatusAtivo)
+            await loadActiveProjects()
+            showSuccessToast("Status do projeto atualizado com sucesso!")
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                handleApiError(error.status)
+            }
         }
-    }
-    
-    const handleRadioInput = (evento: ChangeEvent<HTMLInputElement>) => {
-        setFormData((dadosAnteriores) => ({
-            ...dadosAnteriores,
-            ativo: evento?.target.value,
-        }))
     }
 
     const handleOptionInput = async (evento: ChangeEvent<HTMLInputElement>) => {
