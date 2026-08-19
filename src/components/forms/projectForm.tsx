@@ -84,7 +84,6 @@ function ProjectForm({ displayProjectForm, setDisplayProjectForm, allProjects, l
 
     const handleFileInputValue = (evento: ChangeEvent<HTMLInputElement>) => {
         const { name, files } = evento.target;
-        console.log(files)
             if (files && files.length > 0) {
                 setFormData((dadosAnteriores) => ({
                     ...dadosAnteriores,
@@ -203,28 +202,36 @@ function ProjectForm({ displayProjectForm, setDisplayProjectForm, allProjects, l
             <h2>Projetos</h2>
             <form onSubmit={handleSubmitFormToPatchOrPostProject}>
                 <input type="hidden" name="id" value={projectId} />
-                <input type="text" list="project-list" id="projetoChoiced" name="projetoChoiced" value={selectedProject} placeholder="Escreva ou escolha um projeto..." onChange={handleOptionInput} disabled={loading}/>
+                <input type="text" list="project-list" id="projetoChoiced" name="projetoChoiced" value={selectedProject} placeholder="Escreva ou escolha um projeto..." onChange={handleOptionInput}/>
                 <datalist id="project-list">
-                {projects.map((project) => (
+                {allProjects? allProjects.map((project) => (
                     <option 
                     key={project.id} 
                     value={project.nome} 
                     label={`Id do Projeto: ${project.id}`} 
                     />
-                ))}
+                )): null}
                 </datalist>
                 <input type="text" name="nome" id="nome" placeholder="Nome" value={formData.nome} onChange={handleTextInputValue}/>
                 <textarea name="descricao" id="descricao" placeholder="Descrição" value={formData.descricao} onChange={handleTextInputValue}></textarea>
                 <input type="text" name="githubUrl" id="githubUrl" placeholder="Repositório" value={formData.githubUrl} onChange={handleTextInputValue}/>
                 <input type="text" name="deployUrl" id="deployUrl" placeholder="Site" value={formData.deployUrl} onChange={handleTextInputValue}/>
-                <div className="active_button">
-                    <label htmlFor="ativo">
-                        Ativo
-                    </label>
-                        <input type="radio" name="ativo" value="false" onChange={handleRadioInput}/> 
-                    <label htmlFor="ativo">Desativado
-                    </label>
-                        <input type="radio" name="ativo" value="true" onChange={handleRadioInput}/> 
+                <div className="tech-section">
+                    {technologies.map(({ id, nome }) => {
+                        return (
+                            <div className="tech" key={id}>
+                                <input
+                                    type="checkbox"
+                                    id={`custom-checkbox-${id}`}
+                                    name="tecnologias"
+                                    value={id}
+                                    checked={formData.tecnologias.includes(id)}
+                                    onChange={() => handleOnChangeTechs(id)}
+                                />
+                                <label htmlFor={`custom-checkbox-${id}`}>{nome}</label>
+                            </div>
+                        );
+                    })}
                 </div>
                 <label htmlFor="imagem">Imagem</label>
                 <input type="file" name="imagemSrc" id="imagemSrc" onChange={handleFileInputValue}/>
