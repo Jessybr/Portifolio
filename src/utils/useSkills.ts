@@ -3,22 +3,14 @@ import { getSoftSkill } from "../api/softSkillApi"
 import { getTechnology } from "../api/technologyApi"
 import { deleteSoftSkill, postSoftSkill } from "../api/admin/softSkillAdminApi"
 import { deleteTechnology, postTechnology } from "../api/admin/technologyAdminApi"
+import type { SoftSkillData, SoftSkillRequest } from "../types/softSkill"
 
 interface TechnologyData {
     id: number
     nome: string
 }
 
-interface SoftSkillData {
-    id: number
-    nome: string
-}
-
 interface TechnologyDataRequest {
-    nome: string
-}
-
-interface SoftSkillDataRequest {
     nome: string
 }
 
@@ -42,7 +34,7 @@ function useSkills() {
         }
     }
 
-    async function addSoftSkill(data: SoftSkillDataRequest) {
+    async function addSoftSkill(data: SoftSkillRequest) {
         await postSoftSkill(data)
         await loadSkills()
     }
