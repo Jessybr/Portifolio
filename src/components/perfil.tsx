@@ -45,7 +45,6 @@ function Perfil({ displayFormLogin, setDisplayFormLogin, displayPerfilForm, setD
                                 <h2>Olá, eu sou a </h2>
                                 <h1 onClick={() => setDisplayFormLogin(true) }>{perfil?.nomeCompleto}</h1>
                                 <h4>{perfil?.breveDescricao}</h4>
-                                {/* <button><a href={perfil?.curriculoSrc} download="Curriculo-Jessica-Bueno-Ramos.pdf" target="_blank">Currículo</a></button> */}
                                 <a href={perfil?.githubUrl} target="_blank">
                                 <FontAwesomeIcon icon={faGithub} size="xl" />
                                 </a>
