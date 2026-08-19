@@ -142,30 +142,30 @@ function ProjectForm({ displayProjectForm, setDisplayProjectForm, allProjects, l
         const projectName = evento.target.value
         setSelectedProject(projectName);
 
-        const projetoEncontrado = projects.find(
-            (project) => project.nome.toLowerCase() === projectName.toLowerCase()
-        );
-
-        if (!projetoEncontrado) {
-            return
-        }
-
         try {
-            const project = await getProjectById(projetoEncontrado.id)
-            setProjectId(project.id)
+            const selectedProjectData = await findProjectByName(projectName)
+            if (!selectedProjectData) return
+
+            setProjectId(selectedProjectData.id)
+
+            const projectTechnologyIds = selectedProjectData.tecnologias.map((tecnologia) => tecnologia.tecnologia_id)
 
             setFormData({
-                nome: project?.nome ?? '',
-                descricao: project?.descricao ?? '',
-                ativo: project?.ativo !== undefined ? String(project.ativo) : '',
+                nome: selectedProjectData.nome,
+                descricao: selectedProjectData.descricao,
+                ativo: String(selectedProjectData.ativo),
                 videoSrc: null,
                 imagemSrc: null,
-                deployUrl: project?.deployUrl ?? '',
-                githubUrl: project?.githubUrl ?? '',
-                tecnologias: project?.tecnologias ?? []
+                deployUrl: selectedProjectData.deployUrl,
+                githubUrl: selectedProjectData.githubUrl,
+                tecnologias: projectTechnologyIds
             })
+            
+            setProjectStatus(selectedProjectData.ativo)
         } catch (error) {
-            console.error(error)
+            if (axios.isAxiosError(error)) {
+                handleApiError(error.status)
+            }
         }
     }
 
