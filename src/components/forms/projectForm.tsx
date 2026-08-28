@@ -96,7 +96,6 @@ function ProjectForm({ displayProjectForm, setDisplayProjectForm, allProjects, l
     async function handleProjectStatus(projectId: number) {
         try {
             const response = await updateStatusProject(projectId)
-            console.log(response)
 
             if (!response) {
                 return
