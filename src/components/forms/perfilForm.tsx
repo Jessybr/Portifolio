@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useState, type ChangeEvent } from "react"
+import { useEffect, useState, type ChangeEvent } from "react"
 import { handleApiError, showErrorToast, showSuccessToast } from "../../utils/toast"
 import type { PerfilData, PerfilRequest } from "../../types/perfil"
 import { validateFile } from "../../utils/fileValidation"
@@ -10,29 +10,43 @@ interface PerfilFormProps {
     setDisplayPerfilForm: React.Dispatch<React.SetStateAction<boolean>>
     loading: boolean
     perfil: PerfilData | undefined
-    loadPerfil: () => Promise<void>
     updatePerfil: (dataForm: PerfilRequest) => Promise<void> 
 }
 
-function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, perfil, loading, loadPerfil, updatePerfil }: PerfilFormProps) {
+function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, perfil, loading, updatePerfil }: PerfilFormProps) {
     const [formData, setFormData] = useState<PerfilRequest>({
         nomeCompleto: perfil?.nomeCompleto ?? '',
         email: perfil?.email ?? '',
         celular: perfil?.celular ?? '',
         linkedinUrl: perfil?.linkedinUrl ?? '',
         githubUrl: perfil?.githubUrl ?? '',
+        pdf: null,
         imagem: null,
         breveDescricao: perfil?.breveDescricao ?? '',
         sobreMim: perfil?.sobreMim ?? '',
-    });
+    })
+
+    useEffect(() => {
+        setFormData({
+            nomeCompleto: perfil?.nomeCompleto ?? '',
+            email: perfil?.email ?? '',
+            celular: perfil?.celular ?? '',
+            linkedinUrl: perfil?.linkedinUrl ?? '',
+            githubUrl: perfil?.githubUrl ?? '',
+            pdf: null,
+            imagem: null,
+            breveDescricao: perfil?.breveDescricao ?? '',
+            sobreMim: perfil?.sobreMim ?? '',
+        })
+    }, [perfil])
 
     const handleTextInput = (evento: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = evento.target;
         setFormData((dadosAnteriores) => ({
             ...dadosAnteriores,
             [name]: value,
-        }));
-    };
+        }))
+    }
 
     const handleFileInput = (evento: ChangeEvent<HTMLInputElement>) => {
         const { name, files } = evento.target
@@ -46,6 +60,9 @@ function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, perfil, loading, 
         let error
         if(name === 'imagem') {
             error = validateFile(file, FILE_RULES.image)
+        }
+        if(name === 'pdf') {
+            error = validateFile(file, FILE_RULES.pdf)
         }
 
         if (error) {
@@ -64,7 +81,6 @@ function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, perfil, loading, 
         event.preventDefault()
         try {
             await updatePerfil(formData)
-            loadPerfil()
             showSuccessToast("Perfil editado com sucesso!")
         } catch (error) {
             if (axios.isAxiosError(error)) {
@@ -88,6 +104,8 @@ function PerfilForm({ displayPerfilForm, setDisplayPerfilForm, perfil, loading, 
                     <input type="text" name="linkedinUrl" id="linkedinUrl" placeholder="Linkedin" value={formData.linkedinUrl} onChange={handleTextInput}/>
                     <input type="text" name="email" id="email" placeholder="Email" value={formData.email} onChange={handleTextInput}/>
                     <input type="text" name="celular" id="celular" placeholder="Celular" value={formData.celular} onChange={handleTextInput}/>
+                    <label htmlFor="pdf">Currículo</label>
+                    <input type="file" name="pdf" id="pdf" placeholder="Currículo" onChange={handleFileInput}/>
                     <label htmlFor="imagem">Foto</label>
                     <input type="file" name="imagem" id="imagem" placeholder="imagem" onChange={handleFileInput}/>
                     <button type="submit">Salvar</button>
