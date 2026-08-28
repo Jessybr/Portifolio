@@ -158,6 +158,12 @@ function ProjectForm({ displayProjectForm, setDisplayProjectForm, allProjects, l
                 await updateProject(formData, projectId)
                 showSuccessToast("Projeto atualizado com sucesso!")
             } else {
+                allProjects.forEach((project) => {
+                    if(project.nome === formData.nome) {
+                        showErrorToast("Já existe um projeto com esse nome. Por favor, escolha outro nome.")
+                        throw new Error("Projeto duplicado")
+                    }
+                })
                 showSuccessToast("Projeto criado com sucesso!")
                 await createProject(formData)
             }
