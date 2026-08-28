@@ -1,27 +1,8 @@
 import { useState } from "react"
+import type { ProjectData } from "../../../types/project"
 
 interface ProjectProps {
-    project: {
-        nome: string
-        descricao: string
-        videoSrc: string
-        videoPublicId: string
-        imagemSrc: string
-        imagemPublicId: string
-        deployUrl: string
-        githubUrl: string
-        tecnologias: [
-                {
-                    tecnologia_id: number
-                    projeto_id: number
-                    tecnologia: {
-                        id: number
-                        nome: string
-                        iconeSrc: string
-                    }
-                }
-            ],
-    }
+    project: ProjectData
 }
 
 function Project({ project }: ProjectProps) {
