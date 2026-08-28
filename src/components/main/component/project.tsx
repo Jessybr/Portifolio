@@ -29,7 +29,7 @@ function Project({ project }: ProjectProps) {
                         <h4>{project.nome}</h4>
                         
                     </div>
-                    <div className="icon_proj">
+                    <div className="tech_proj">
                         {project.tecnologias && project.tecnologias?.map((tecnologia) => (
                             <>
                                 <p key={tecnologia.tecnologia_id}>{tecnologia.tecnologia.nome}</p>
