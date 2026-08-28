@@ -57,7 +57,7 @@ function SkillsList({ displaySkillForm, setDisplaySkillForm, loginIn }: SkillLis
                     (<p>Carregando projetos...</p>) : 
                     (softSkills.map(skill => 
                             (
-                                <li>
+                                <li key={skill.id}>
                                     {skill.nome}
                                 </li>
                             )
@@ -72,7 +72,7 @@ function SkillsList({ displaySkillForm, setDisplaySkillForm, loginIn }: SkillLis
                     (<p>Carregando projetos...</p>) :
                     (technologies.map(skill => 
                             (
-                                <li>
+                                <li key={skill.id}>
                                     {skill.nome}
                                 </li>
                             )
