@@ -292,6 +292,25 @@ header {
   width: 40px;
   height: 40px;
 }
+.cont_skills .ulConfig, .cont_skills .soft ul, .cont_skills .recen ul, .cont_skills .hard ul {
+  display: flex;
+  gap: 10px;
+  width: fit-content;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cont_skills .liConfig, .cont_skills .soft ul li, .cont_skills .recen ul li, .cont_skills .hard ul li {
+  display: flex;
+  background-color: #bf6d3a;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  list-style-type: none;
+  border-radius: 30px;
+  padding: 6px 10px;
+  text-wrap: nowrap;
+  flex-wrap: wrap;
+}
 .cont_skills .soft, .cont_skills .recen, .cont_skills .hard {
   display: none;
   width: 75%;
@@ -302,16 +321,6 @@ header {
   text-align: center;
   color: #ffe659;
 }
-.cont_skills .soft ul, .cont_skills .recen ul, .cont_skills .hard ul {
-  width: 250px;
-}
-.cont_skills .soft ul li, .cont_skills .recen ul li, .cont_skills .hard ul li {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin: 15px;
-  list-style-type: none;
-}
 .cont_skills .soft ul li svg, .cont_skills .recen ul li svg, .cont_skills .hard ul li svg {
   margin: 0 5px;
 }
@@ -319,16 +328,6 @@ header {
   margin: 5px;
   text-align: center;
   color: #ffe659;
-}
-.cont_skills .hard ul {
-  width: 250px;
-}
-.cont_skills .hard ul li {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin: 15px;
-  list-style-type: none;
 }
 .cont_skills .hard ul li svg {
   margin: 0 5px;
@@ -422,15 +421,26 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px;
+  margin: 4px;
   width: auto;
 }
 .cont_proj .projs .proj_about .head_proj video {
   width: 100%;
   height: auto;
 }
-.cont_proj .projs .proj_about .head_proj .icon_proj, .cont_proj .projs .proj_about .head_proj .title_proj {
+.cont_proj .projs .proj_about .head_proj .tech_proj, .cont_proj .projs .proj_about .head_proj .title_proj {
   margin: 20px;
+}
+.cont_proj .projs .proj_about .head_proj .tech_proj {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.cont_proj .projs .proj_about .head_proj .tech_proj p {
+  background-color: #bf6d3a;
+  border-radius: 30px;
+  padding: 4px 12px;
 }
 .cont_proj .projs .proj_about .head_proj .title_proj h4 {
   text-align: center;
@@ -499,6 +509,7 @@ header {
 .cont_about p {
   width: 75%;
   margin: 10px;
+  text-align: justify;
 }
 
 .projectForm {
@@ -808,7 +819,7 @@ header {
     justify-content: center;
   }
   .cont_skills .soft ul li, .cont_skills .hard ul li, .cont_skills .recen ul li {
-    width: 203px;
+    min-width: 203px;
   }
   .cont_skills .soft ul li svg, .cont_skills .hard ul li svg, .cont_skills .recen ul li svg {
     margin: 0 10px;

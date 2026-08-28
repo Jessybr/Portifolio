@@ -355,6 +355,27 @@ header{
         width: 40px;
         height: 40px;
     }
+
+    .ulConfig {
+        display: flex;
+        gap: 10px;
+        width: fit-content;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .liConfig {
+        display: flex;
+        background-color: colors-font.$primary-color;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        list-style-type: none;
+        border-radius: 30px;
+        padding: 6px 10px;
+        text-wrap: nowrap;
+        flex-wrap: wrap;
+    }
     
     
     .soft{
@@ -368,14 +389,10 @@ header{
             color: colors-font.$tertiary-color;
         }
         ul{
-            width: 250px;
+            @extend .ulConfig;
 
             li{
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                margin: 15px;
-                list-style-type: none;
+                @extend .liConfig;
 
                 svg{
                     margin: 0 5px;
@@ -392,14 +409,10 @@ header{
             color: colors-font.$tertiary-color;
         }
         ul{
-            width: 250px;
+            @extend .ulConfig;
 
             li{
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                margin: 15px;
-                list-style-type: none;
+                @extend .liConfig;
 
                 svg{
                     margin: 0 5px;
@@ -519,7 +532,7 @@ header{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                margin: 20px;
+                margin: 4px;
                 width: auto;
                 
                 video{
@@ -527,8 +540,21 @@ header{
                     height: auto;
                 }
         
-                .icon_proj, .title_proj{
+                .tech_proj, .title_proj{
                     margin: 20px;
+                }
+
+                .tech_proj {
+                    display: flex;
+                    gap: 10px;
+                    flex-wrap: wrap;
+                    align-items: center;
+
+                    p {
+                        background-color: colors-font.$primary-color;
+                        border-radius: 30px;
+                        padding: 4px 12px;
+                    }
                 }
 
                 .title_proj{
@@ -615,6 +641,7 @@ header{
     p{
         width: 75%;
         margin: 10px;
+        text-align: justify;
     }
 }
 
@@ -999,7 +1026,7 @@ header{
                 justify-content: center;
     
                 li{
-                    width: 203px;
+                    min-width: 203px;
 
                     svg{
                         margin: 0 10px;
