@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { getPerfil } from "../api/perfilApi"
 import { patchPerfil } from "../api/admin/perfilAdminApi"
 import type { PerfilData, PerfilRequest } from "../types/perfil"
@@ -7,11 +7,11 @@ function usePerfil() {
     const [perfil, setPerfil] = useState<PerfilData>()
     const [loading, setLoading] = useState(true)
 
-    async function loadPerfil() {
+    const loadPerfil = useCallback(async () => {
         const response = await getPerfil()
         setPerfil(response.data.data.perfil)
         setLoading(false)
-    }
+    }, [])
 
     async function updatePerfil(formData: PerfilRequest) {
         const data = new FormData()
@@ -30,13 +30,13 @@ function usePerfil() {
             data.append('imagem', formData.imagem);
         }
 
-        await patchPerfil(data)
-        loadPerfil()
+        const response = await patchPerfil(data)
+        setPerfil(response.data.perfil)
     }
 
     useEffect(() => {
         loadPerfil()
-    })
+    }, [loadPerfil])
 
     return {
         loading, 
