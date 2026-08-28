@@ -3,7 +3,7 @@ import Navigation from './components/navigation.tsx'
 import './style/style.css'
 import { useState } from 'react'
 import Footer from './components/footer.tsx'
-import { Bounce, ToastContainer } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 
 function App() {
     const [loginIn, setLoginIn] = useState<boolean>(() => {
